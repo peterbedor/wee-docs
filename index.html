@@ -56,15 +56,28 @@
               let langs = lang.split('|');
 
               for (let i = 0; i < parts.length; i += 1) {
-                let hl = Prism.highlight(parts[i].trim(), Prism.languages[langs[i]]);
+                let language = Prism.languages[langs[i]];
+                let content;
 
-                blocks.push(`<pre v-pre="" data-lang="${langs[i]}"><code class="lang-${langs[i]}">${hl}</code></pre>`);
+                if (language) {
+                  content = Prism.highlight(parts[i].trim(), Prism.languages[langs[i]]);
+                } else {
+                  content = parts[i].trim();
+                }
+
+                blocks.push(`<pre v-pre="" data-lang="${langs[i]}"><code class="lang-${langs[i]}">${content}</code></pre>`);
               }
 
               return `<div class="code-split">${blocks.join('')}</div>`;
             }
 
-            return `<pre v-pre="" data-lang="${lang}"><code class="lang-${lang}">${Prism.highlight(content, Prism.languages[lang])}</code></pre>`
+            let language = Prism.languages[lang];
+
+            if (language) {
+              content = Prism.highlight(content, language);
+            }
+
+            return `<pre v-pre="" data-lang="${lang}"><code class="lang-${lang}">${content}</code></pre>`;
           }
         }
       }
