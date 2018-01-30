@@ -16,3 +16,5 @@
 - Script
     - [Core](/docs/script/core)
     - [Assets](/docs/script/assets)
+    - [Fetch](/docs/script/fetch)
+    - [Dom](/docs/script/dom)
