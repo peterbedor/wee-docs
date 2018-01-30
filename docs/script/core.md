@@ -183,7 +183,7 @@ $exec((greeting, subject) => {
 ```
 
 
-```
+```js
 import { $exec } from'core/core';
 
 $exec([
