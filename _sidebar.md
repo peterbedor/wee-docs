@@ -15,3 +15,4 @@
     - [Classes](/docs/style/classes)
 - Script
     - [Core](/docs/script/core)
+    - [Assets](/docs/script/assets)
