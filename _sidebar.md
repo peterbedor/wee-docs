@@ -13,3 +13,5 @@
     - [Variables](/docs/style/variables)
     - [Mixins](/docs/style/mixins)
     - [Classes](/docs/style/classes)
+- Script
+    - [Core](/docs/script/core)
