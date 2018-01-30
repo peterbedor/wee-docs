@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <link rel="stylesheet" href="//unpkg.com/docsify-copy-code/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/themes/prism-tomorrow.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/themes/prism-solarizedlight.min.css">
 
   <style>
     @media (min-width: 780px) {
@@ -33,6 +33,37 @@
   <div id="app"></div>
   <script src="//unpkg.com/docsify-copy-code/index.js"></script>
   <script>
+    let Renderer = (function() {
+      function buildTemplate(content, lang) {
+        return `<pre v-pre="" ${lang ? `data-lang="${lang}` : '' }"><code ${lang ? `class="lang-${lang}` : ''}">${highlight(content, lang)}</code></pre>`;
+      }
+
+      function highlight(content, lang) {
+        if (lang) {
+          return Prism.highlight(content, Prism.languages[lang]);
+        }
+
+        return content;
+      }
+
+      return {
+        renderCode(content, lang = '') {
+          if (content.indexOf('---') > -1) {
+            let blocks = [];
+            let parts = content.split('---');
+            let langs = lang.split('|');
+
+            for (let i = 0; i < parts.length; i += 1) {
+              blocks.push(buildTemplate(parts[i].trim(), langs[i]));
+            }
+
+            return `<div class="code-split">${blocks.join('')}</div>`;
+          }
+
+          return buildTemplate(content, lang);
+        }
+      }
+    })();
     window.$docsify = {
       name: 'Wee',
       repo: 'https://github.com/weepower/wee',
@@ -49,36 +80,7 @@
       markdown: {
         smartypants: true,
         renderer: {
-          code: function (content, lang) {
-            if (content.indexOf('---') > -1) {
-              let blocks = [];
-              let parts = content.split('---');
-              let langs = lang.split('|');
-
-              for (let i = 0; i < parts.length; i += 1) {
-                let language = Prism.languages[langs[i]];
-                let content;
-
-                if (language) {
-                  content = Prism.highlight(parts[i].trim(), Prism.languages[langs[i]]);
-                } else {
-                  content = parts[i].trim();
-                }
-
-                blocks.push(`<pre v-pre="" data-lang="${langs[i]}"><code class="lang-${langs[i]}">${content}</code></pre>`);
-              }
-
-              return `<div class="code-split">${blocks.join('')}</div>`;
-            }
-
-            let language = Prism.languages[lang];
-
-            if (language) {
-              content = Prism.highlight(content, language);
-            }
-
-            return `<pre v-pre="" data-lang="${lang}"><code class="lang-${lang}">${content}</code></pre>`;
-          }
+          code: Renderer.renderCode,
         }
       }
     }

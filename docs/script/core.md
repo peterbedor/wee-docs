@@ -10,8 +10,8 @@ Functions passed in as parameters to any Wee API method are evaluated in the sam
 
 | Variable | Type   | Default | Description                                            | Required |
 |----------|--------|---------|--------------------------------------------------------|----------|
-| args     | array  | -       | Arguments to be passed into value if value is function |    -      |
-| scope    | object | -       | Scope assigned to value if value is a function         |     -     |
+| args     | array  | -       | Arguments to be passed into value if value is function | -        |
+| scope    | object | -       | Scope assigned to value if value is a function         | -        |
 
 ## $chain
 
@@ -38,14 +38,14 @@ Execute function for each matching selection
 |----------|------------------------------------|---------|------------------------------------------------------------|----------|
 | target   | [selection](/script/dom#selection) | -       | Target selection                                           | ✔        |
 | fn       | function                           | -       | Callback function                                          | ✔        |
-| options  | object                             | -       | Object properties below and [Callback](#callbacks) options | -         |
+| options  | object                             | -       | Object properties below and [Callback](#callbacks) options | -        |
 
 ### Options Object
 
 | Variable | Type                               | Default  | Description                    | Required |
 |----------|------------------------------------|----------|--------------------------------|----------|
-| context  | [selection](/script/dom#selection) | document | Callback context               |    -      |
-| reverse  | boolean                            | false    | Reverse the order of execution |     -     |
+| context  | [selection](/script/dom#selection) | document | Callback context               | -        |
+| reverse  | boolean                            | false    | Reverse the order of execution | -        |
 
 ### Simple
 
@@ -78,8 +78,8 @@ Get current environment or set current environment against specified object
 
 | Variable | Type   | Default | Description         | Required |
 |----------|--------|---------|---------------------|----------|
-| rules    | object | -       | Environmental rules |   -       |
-| fallback | string | "local" | Default environment |    -      |
+| rules    | object | -       | Environmental rules | -        |
+| fallback | string | "local" | Default environment | -        |
 
 ### Set
 
@@ -159,7 +159,7 @@ Execute specified function
 | Variable | Type            | Default | Description                    | Required |
 |----------|-----------------|---------|--------------------------------|----------|
 | fn       | function, array | -       | Functions to execute           | ✔        |
-| options  | object          | -       | [Callback options](#callbacks) |  -        |
+| options  | object          | -       | [Callback options](#callbacks) | -        |
 
 ```js
 import { $exec } from'core/core';
@@ -289,7 +289,7 @@ The callback receives the current element as well as the index.
 |----------|-------------------------------------------|---------|--------------------------------|----------|
 | target   | array, [selection](/script/dom#selection) | -       | Array or selection             | ✔        |
 | fn       | function                                  | -       | Callback function              | ✔        |
-| options  | object                                    | -       | [Callback](#callbacks) options |-          |
+| options  | object                                    | -       | [Callback](#callbacks) options | -        |
 
 ###Array
 
@@ -362,7 +362,7 @@ Available data-ref values are pushed into the global storage for later retrieval
 
 | Variable | Type                       | Default  | Description       | Required |
 |----------|----------------------------|----------|-------------------|----------|
-| context  | [selection](/script/dom#$) | document | Context selection |  -        |
+| context  | [selection](/script/dom#$) | document | Context selection | -        |
 
 ```html
 <div data-ref="element"></div>
@@ -477,10 +477,10 @@ $unserialize('key1=123&key2[]=value+1&key2[]=value+2');
 
 Determine if value is a number
 
-| Variable | Type | Default | Description       | Required |
-|----------|------|---------|-------------------|----------|
-| value    | any  | -       | Value to evaluate | ✔        |
-|strict|boolean|true|Match values that are actual numbers, not strings with numeric characters||
+| Variable | Type    | Default | Description                                                               | Required |
+|----------|---------|---------|---------------------------------------------------------------------------|----------|
+| value    | any     | -       | Value to evaluate                                                         | ✔        |
+| strict   | boolean | true    | Match values that are actual numbers, not strings with numeric characters | -        |
 
 ```js|js
 import { $isNumber } from'core/types';
@@ -504,8 +504,8 @@ Extend target object with source object(s)
 |----------|-----------------|---------|---------------------------------------------|----------|
 | deep     | boolean, object | false   | Extend nested properties else target object | ✔        |
 | target   | object          | -       | Target/source object                        | ✔        |
-| source   | object          | -       | Source object                               |  -        |
-| source   | object          | -       | Additional objects...                       |   -       |
+| source   | object          | -       | Source object                               | -        |
+| source   | object          | -       | Additional objects...                       | -        |
 
 ### Clone Object
 
