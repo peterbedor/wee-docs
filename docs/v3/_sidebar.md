@@ -1,6 +1,6 @@
 - Start
     - [Structure](/docs/v3/start/structure)
-    - [Markup](/docs/v3/)
+    - [Markup](/docs/v3/start/markup)
 - CLI
     - [Commands](/docs/v3/)
 - Build
