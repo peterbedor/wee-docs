@@ -55,8 +55,9 @@ Define the [entry point(s)](https://webpack.js.org/concepts/) for your applicati
 }
 ```
 
-```js
-// result will be placed in /public/assets/scripts
+Results will be placed in `/public/assets/scripts`
+
+```
 app.bundle.js
 other.bundle.js
 ```
@@ -244,8 +245,6 @@ Each breakpoint defined in this configuration block will register a min-width me
 
 `breakpointOffset` is intended to account for browsers that push content over to make room for the vertical scrollbar. Each breakpoint value will have this value subtracted from it before generating the media query in output stylesheets.
 
-?> **Note:** Breakpoint names should be camelCase
-
 ```json
 "breakpoints": {
 	"mobileLandscape": 480, // styles/breakpoints/mobile-landscape.pcss
@@ -257,13 +256,15 @@ Each breakpoint defined in this configuration block will register a min-width me
 "breakpointOffset": 25
 ```
 
-```scss
+```scss|scss
 /* Example card component */
 @mobileLandscape {
 	.card {
 		background: blue;
 	}
 }
+
+---
 
 /* output */
 @media(min-width: 455px) {
@@ -272,3 +273,5 @@ Each breakpoint defined in this configuration block will register a min-width me
 	}
 }
 ```
+
+?> **Note:** Breakpoint names should be camelCase
