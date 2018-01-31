@@ -5,8 +5,8 @@
     - [Commands](/docs/v3/cli/commands)
 - Build
     - [Config](/docs/v3/build/config)
-	- [Commands](/docs/v3/)
-	- [Modules](/docs/v3/)
+	- [Commands](/docs/v3/build/commands)
+	- [Modules](/docs/v3/build/modules)
 - Generate
 	- [Config](/docs/v3/)
 	- [Usage](/docs/v3/)
