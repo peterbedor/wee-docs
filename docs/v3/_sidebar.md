@@ -4,7 +4,7 @@
 - CLI
     - [Commands](/docs/v3/cli/commands)
 - Build
-    - [Config](/docs/v3/)
+    - [Config](/docs/v3/build/config)
 	- [Commands](/docs/v3/)
 	- [Modules](/docs/v3/)
 - Generate
