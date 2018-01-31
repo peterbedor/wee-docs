@@ -50,7 +50,7 @@ There are three top level directories that exist in a Wee project. The names of 
 
 This is where a developer will spend most/all of their time. The code written and the assets added to the source directory is bundled up and optimized by the build process and placed in the `public/assets` directory.
 
-```txt
+```
 source/
     commands/  // Custom CLI commands
     components/

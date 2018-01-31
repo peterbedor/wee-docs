@@ -1,19 +1,19 @@
-- Guide
+- **Guide**
     - [Introduction](/docs/guide/introduction)
     - [Highlights](/docs/guide/highlights)
     - [PostCSS](/docs/guide/postcss)
     - [ES Modules](/docs/guide/esmodules)
     - [CLI](/docs/guide/cli)
     - [Store](/docs/guide/store)
-- CLI
+- **CLI**
     - [Commands](/docs/cli/commands)
-- Build
+- **Build**
     - [Configuration](/docs/build/configuration)
-- Style
+- **Style**
     - [Variables](/docs/style/variables)
     - [Mixins](/docs/style/mixins)
     - [Classes](/docs/style/classes)
-- Script
+- **Script**
     - [Core](/docs/script/core)
     - [Assets](/docs/script/assets)
     - [Fetch](/docs/script/fetch)
