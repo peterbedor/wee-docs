@@ -8,10 +8,10 @@ Wee makes modifying and extracting data from your markup easy with a robust set 
 
 Get matches to specified selector or return parsed HTML
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|selector|selection|-|Target selection or HTML string|✔|
-|context|selection|document|Context selection|-|
+| Variable | Type      | Default  | Description                     | Required |
+|----------|-----------|----------|---------------------------------|----------|
+| selector | selection | -        | Target selection or HTML string | ✔        |
+| context  | selection | document | Context selection               | -        |
 
 ### Simple
 
@@ -87,9 +87,9 @@ $('ref:element, ref:element2');
 
 Add classes to each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|function, string|-|Class name(s) to add or callback|✔|
+| Variable | Type             | Default | Description                      | Required |
+|----------|------------------|---------|----------------------------------|----------|
+| value    | function, string | -       | Class name(s) to add or callback | ✔        |
 
 ### Single
 
@@ -127,10 +127,10 @@ Note: The index argument is always 0-based.
 
 Insert selection or markup after each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|source|function, [selection](/script/dom#selection), string|-|Source selection, callback, or HTML string|✔|
-|remove|boolean|false|Remove target after insertion|-|
+| Variable | Type                                                 | Default | Description                                | Required |
+|----------|------------------------------------------------------|---------|--------------------------------------------|----------|
+| source   | function, [selection](/script/dom#selection), string | -       | Source selection, callback, or HTML string | ✔        |
+| remove   | boolean                                              | false   | Remove target after insertion              | -        |
 
 ### Selection
 
@@ -178,9 +178,9 @@ $(ref.bioName').after(function(i, html) {
 
 Append selection or markup after each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|source|function, [selection](#selection), string||Source selection, callback, or HTML string|✔|
+| Variable | Type                                      | Default | Description                                | Required |
+|----------|-------------------------------------------|---------|--------------------------------------------|----------|
+| source   | function, [selection](#selection), string |         | Source selection, callback, or HTML string | ✔        |
 
 ### Selection
 
@@ -222,10 +222,10 @@ $('ref:listHeading').append(function(i, html){
 
 Get attribute of first matching selection or set attribute of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|attribute|string, object|-|Attribute to get or set or an object|✔|
-|value|function, string|-|Value to assign to attribute|-|
+| Variable  | Type             | Default | Description                          | Required |
+|-----------|------------------|---------|--------------------------------------|----------|
+| attribute | string, object   | -       | Attribute to get or set or an object | ✔        |
+| value     | function, string | -       | Value to assign to attribute         | -        |
 
 ### Get
 
@@ -262,10 +262,10 @@ $('ref:element').attr({
 
 Insert selection or markup before each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|source|function, [selection](#selection), string|-|Source selection, callback or HTML string|✔|
-|remove|boolean|false|Remove target after insertion|-|
+| Variable | Type                                      | Default | Description                               | Required |
+|----------|-------------------------------------------|---------|-------------------------------------------|----------|
+| source   | function, [selection](#selection), string | -       | Source selection, callback or HTML string | ✔        |
+| remove   | boolean                                   | false   | Remove target after insertion             | -        |
 
 ### Selection
 
@@ -297,9 +297,9 @@ $('ref:element').before(function(i, html) {
 
 Get unique direct children of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|[selection](#selection)|-|Filter selection|-|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| filter   | [selection](#selection) | -       | Filter selection | -        |
 
 ### All Children
 
@@ -337,10 +337,10 @@ $('ref.element').clone();
 
 Get unique closest ancestors of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|[selection](#selection)|-|Filter selection|✔|
-|context|[selection](#selection)|-|Context selection|-|
+| Variable | Type                    | Default | Description       | Required |
+|----------|-------------------------|---------|-------------------|----------|
+| filter   | [selection](#selection) | -       | Filter selection  | ✔        |
+| context  | [selection](#selection) | -       | Context selection | -        |
 
 ```html
 <div class="js-nav">
@@ -369,9 +369,9 @@ This method traverses up the DOM for the closest match. It doesn't match descend
 
 Determine if any matching parent selection contains descendant selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|descendant|[selection](#selection)|-|Descendant selection|✔|
+| Variable   | Type                    | Default | Description          | Required |
+|------------|-------------------------|---------|----------------------|----------|
+| descendant | [selection](#selection) | -       | Descendant selection | ✔        |
 
 ```js|js
 import $ from'wee-dom';
@@ -387,9 +387,9 @@ true
 
 Get unique content of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|parent|[selection](#selection)|-|Parent selection|✔|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| parent   | [selection](#selection) | -       | Parent selection | ✔        |
 
 ```js
 import $ from'wee-dom';
@@ -403,10 +403,10 @@ The response includes text and comment nodes.
 
 Get CSS value of first matching selection or set value of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|a|string, object|-|CSS property to get/set, or an object of properties and their values|✔|
-|value|string|-|Value to assign to property|-|
+| Variable | Type           | Default | Description                                                          | Required |
+|----------|----------------|---------|----------------------------------------------------------------------|----------|
+| a        | string, object | -       | CSS property to get/set, or an object of properties and their values | ✔        |
+| value    | string         | -       | Value to assign to property                                          | -        |
 
 ### Get Value
 
@@ -443,10 +443,10 @@ $('ref:element').css({
 
 Get data of first matching selection or set data of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|a|string, object|-|Data attribute to get or set or an object|✔|
-|b|string|-|Value to assign to data attribute|-|
+| Variable | Type           | Default | Description                               | Required |
+|----------|----------------|---------|-------------------------------------------|----------|
+| a        | string, object | -       | Data attribute to get or set or an object | ✔        |
+| b        | string         | -       | Value to assign to data attribute         | -        |
 
 ### Get All
 
@@ -506,10 +506,10 @@ $('ref:element').data({
 
 Execute function for each element in selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|fn|function|-|Callback function|	✔|
-|options|object|-|See options for [$each](/script/core#each)|-|
+| Variable | Type     | Default | Description                                | Required |
+|----------|----------|---------|--------------------------------------------|----------|
+| fn       | function | -       | Callback function                          | ✔        |
+| options  | object   | -       | See options for [$each](/script/core#each) | -        |
 
 ```js
 import $ from'wee-dom';
@@ -544,10 +544,10 @@ $('ref:bio').empty();
 
 Get indexed node of matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|index|number|-|Element index|✔|
-|context|[selection](#selection)|-|Context selection|-|
+| Variable | Type                    | Default | Description       | Required |
+|----------|-------------------------|---------|-------------------|----------|
+| index    | number                  | -       | Element index     | ✔        |
+| context  | [selection](#selection) | -       | Context selection | -        |
 
 ```html
 <ul class="js-element">
@@ -583,10 +583,10 @@ $('.js-element li').eq(-1));
 
 Return a filtered subset of elements from a matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|function, [selection](#selection)|-|Filter selection or callback|✔|
-|options|object|-|[Callback options](/script/core#callbacks)|-|
+| Variable | Type                              | Default | Description                                | Required |
+|----------|-----------------------------------|---------|--------------------------------------------|----------|
+| filter   | function, [selection](#selection) | -       | Filter selection or callback               | ✔        |
+| options  | object                            | -       | [Callback options](/script/core#callbacks) | -        |
 
 ### Selection
 
@@ -625,9 +625,9 @@ $('.people li').filter((i, el) => {
 
 Get unique filtered descendants from each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|[selection](#selection)|-|Filter selection|✔|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| filter   | [selection](#selection) | -       | Filter selection | ✔        |
 
 ```js
 import $ from'wee-dom';
@@ -639,9 +639,9 @@ $('table').find('tr');
 
 Get the first element of a matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|context|[selection](#selection)|-|Selection context|`|
+| Variable | Type                    | Default | Description       | Required |
+|----------|-------------------------|---------|-------------------|----------|
+| context  | [selection](#selection) | -       | Selection context | `        |
 
 ```js
 import $ from'wee-dom';
@@ -653,9 +653,9 @@ const $first = $('ref:element').first();
 
 Determine if the matching selection has a class
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|className|string|-|Specific class name|✔|
+| Variable  | Type   | Default | Description         | Required |
+|-----------|--------|---------|---------------------|----------|
+| className | string | -       | Specific class name | ✔        |
 
 ### Single
 
@@ -678,9 +678,9 @@ true false
 
 Get or set the height of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|function, string, number, boolean|-|Height to set, callback, or true to get outer height|✔|
+| Variable | Type                              | Default | Description                                          | Required |
+|----------|-----------------------------------|---------|------------------------------------------------------|----------|
+| value    | function, string, number, boolean | -       | Height to set, callback, or true to get outer height | ✔        |
 
 ### Get
 
@@ -750,9 +750,9 @@ $('ref:element').hide();
 
 Get inner HTML of first selection or set each matching selection's HTML
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|function, string|-|HTML to set or callback|✔|
+| Variable | Type             | Default | Description             | Required |
+|----------|------------------|---------|-------------------------|----------|
+| value    | function, string | -       | HTML to set or callback | ✔        |
 
 ```html
 <div data-ref="element">
@@ -818,9 +818,9 @@ $('.js-last).index();
 
 Insert each matching source selection element after each matching target selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](#selection)|-|Target selection|✔|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| target   | [selection](#selection) | -       | Target selection | ✔        |
 
 ```js
 import $ from'wee-dom';
@@ -832,9 +832,9 @@ $('ref:element).insertAfter('.js-element');
 
 Insert each matching source selection element before each matching target selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](#selection)|-|Target selection|✔|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| target   | [selection](#selection) | -       | Target selection | ✔        |
 
 ```js
 import $ from'wee-dom';
@@ -846,10 +846,10 @@ $('ref:element).insertBefore('.js-element');
 
 Determine if at least one matching selection matches a specified criteria
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|function, [selection](#selection)|-|Filter selection or callback|✔|
-|options|object|-|[Callback options](/script/core#callbacks)|-|
+| Variable | Type                              | Default | Description                                | Required |
+|----------|-----------------------------------|---------|--------------------------------------------|----------|
+| filter   | function, [selection](#selection) | -       | Filter selection or callback               | ✔        |
+| options  | object                            | -       | [Callback options](/script/core#callbacks) | -        |
 
 ### Selection
 
@@ -894,9 +894,9 @@ true
 
 Get the last element of a matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|context|[selection](#selection)|-|Context selection|-|
+| Variable | Type                    | Default | Description       | Required |
+|----------|-------------------------|---------|-------------------|----------|
+| context  | [selection](#selection) | -       | Context selection | -        |
 
 ```html
 <ul class="names">
@@ -921,10 +921,10 @@ $('.names li').last();
 
 Translate items in selection into new array
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|fn|function|-|Callback function|	✔|
-|options|object|-|See options for [$map](/script/core#map)|-|
+| Variable | Type     | Default | Description                              | Required |
+|----------|----------|---------|------------------------------------------|----------|
+| fn       | function | -       | Callback function                        | ✔        |
+| options  | object   | -       | See options for [$map](/script/core#map) | -        |
 
 ```html
 <div class='js-selection'>Hello</div>
@@ -947,10 +947,10 @@ $('.js-selection').map((el) => {
 
 Get the unique next sibling of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|[selection](#selection)|-|Filter selection||
-|options|object|-|[Callback options](/script/core#callbacks)|-|
+| Variable | Type                    | Default | Description                                | Required |
+|----------|-------------------------|---------|--------------------------------------------|----------|
+| filter   | [selection](#selection) | -       | Filter selection                           |          |
+| options  | object                  | -       | [Callback options](/script/core#callbacks) | -        |
 
 ### Simple
 
@@ -985,10 +985,10 @@ $('ref:name').next();
 
 Returns elements not matching the filtered selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|function, [selection](#selection)|-|Filter selection or callback|✔|
-|options|object|-|[Callback options](/script/core#callbacks)|-|
+| Variable | Type                              | Default | Description                                | Required |
+|----------|-----------------------------------|---------|--------------------------------------------|----------|
+| filter   | function, [selection](#selection) | -       | Filter selection or callback               | ✔        |
+| options  | object                            | -       | [Callback options](/script/core#callbacks) | -        |
 
 ### Selection
 
@@ -1026,9 +1026,9 @@ $('.names li').not((i, el) => {
 
 Get the offset position of a matching selection relative to the document
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|object|-|Offset values|-|
+| Variable | Type   | Default | Description   | Required |
+|----------|--------|---------|---------------|----------|
+| value    | object | -       | Offset values | -        |
 
 ### Set
 
@@ -1062,9 +1062,9 @@ The object values are returned as unitless pixel values.
 
 Get unique parent from each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|[selection](#selection)|-|Filter selection|-|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| filter   | [selection](#selection) | -       | Filter selection | -        |
 
 ### Selection Parent
 
@@ -1088,9 +1088,9 @@ $('ref:element').parent('main');
 
 Get unique ancestors of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|[selection](#selection)|-|Filter selection|-|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| filter   | [selection](#selection) | -       | Filter selection | -        |
 
 ```js
 import $ from'wee-dom';
@@ -1102,9 +1102,9 @@ $('ref:element').parents();
 
 Get the position of the first matching selection relative to its offset parent
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](#selection)|-|Target selection|✔|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| target   | [selection](#selection) | -       | Target selection | ✔        |
 
 ```js|js
 import $ from'wee-dom';
@@ -1125,10 +1125,10 @@ The object values are returned as unitless pixel values.
 
 Prepend selection or markup before each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|source|function, [selection](#selection), string|-|Source selection, callback, or HTML string|✔|
-|options|object|-|[Callback options](https://www.weepower.com/script/#functions)|-|
+| Variable | Type                                      | Default | Description                                                    | Required |
+|----------|-------------------------------------------|---------|----------------------------------------------------------------|----------|
+| source   | function, [selection](#selection), string | -       | Source selection, callback, or HTML string                     | ✔        |
+| options  | object                                    | -       | [Callback options](https://www.weepower.com/script/#functions) | -        |
 
 ### Selection
 
@@ -1170,10 +1170,10 @@ $('ref:listHeading').prepend(() => {
 
 Get the unique previous sibling of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|[selection](#selection)|-|Filter selection||
-|options|object|-|[Callback options](/script/core#callbacks)|-|
+| Variable | Type                    | Default | Description                                | Required |
+|----------|-------------------------|---------|--------------------------------------------|----------|
+| filter   | [selection](#selection) | -       | Filter selection                           |          |
+| options  | object                  | -       | [Callback options](/script/core#callbacks) | -        |
 
 ### Simple
 
@@ -1208,10 +1208,10 @@ $('ref:name').prev();
 
 Get property of first matching selection or set property of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|a|string, object|-|Property to get or set or an object|✔|
-|b|function, string|-|Value to assign to property|-|
+| Variable | Type             | Default | Description                         | Required |
+|----------|------------------|---------|-------------------------------------|----------|
+| a        | string, object   | -       | Property to get or set or an object | ✔        |
+| b        | function, string | -       | Value to assign to property         | -        |
 
 ### Get
 
@@ -1248,9 +1248,9 @@ $('ref:element').prop({
 
 Remove each matching selection from the document
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|context|[selection](#selection)|-|Context selection|-|
+| Variable | Type                    | Default | Description       | Required |
+|----------|-------------------------|---------|-------------------|----------|
+| context  | [selection](#selection) | -       | Context selection | -        |
 
 ```js
 import $ from'wee-dom';
@@ -1262,9 +1262,9 @@ $('ref:element').remove();
 
 Remove specified attribute of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|name|string|-|Attribute name|✔|
+| Variable | Type   | Default | Description    | Required |
+|----------|--------|---------|----------------|----------|
+| name     | string | -       | Attribute name | ✔        |
 
 ```js
 import $ from'wee-dom';
@@ -1276,9 +1276,9 @@ $('ref:element').removeAttr('title');
 
 Remove classes from each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|function, string|-|Class name(s) to remove or callback|✔|
+| Variable | Type             | Default | Description                         | Required |
+|----------|------------------|---------|-------------------------------------|----------|
+| value    | function, string | -       | Class name(s) to remove or callback | ✔        |
 
 ### Single
 
@@ -1314,9 +1314,9 @@ $('ref:element')removeClass((i, className) => {
 
 Replace each matching selection with selection or markup
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|source|function, [selection](#selection), string|-|Source selection, callback, or HTML string|✔|
+| Variable | Type                                      | Default | Description                                | Required |
+|----------|-------------------------------------------|---------|--------------------------------------------|----------|
+| source   | function, [selection](#selection), string | -       | Source selection, callback, or HTML string | ✔        |
 
 ### Selection
 
@@ -1374,9 +1374,9 @@ $('.js-element').reverse();
 
 Get or set the X scroll position of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|integer|-|Left position|-|
+| Variable | Type    | Default | Description   | Required |
+|----------|---------|---------|---------------|----------|
+| value    | integer | -       | Left position | -        |
 
 ### Get Value
 
@@ -1406,9 +1406,9 @@ Scroll position should be provided as unitless pixel value.
 
 Get or set the Y scroll position of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|integer|-|Top position|-|
+| Variable | Type    | Default | Description  | Required |
+|----------|---------|---------|--------------|----------|
+| value    | integer | -       | Top position | -        |
 
 ```js|js
 import $ from'wee-dom';
@@ -1436,9 +1436,9 @@ Scroll position should be provided as unitless pixel value.
 
 Serialize input values from first matching form selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|json|boolean|false|Convert to JSON|-|
+| Variable | Type    | Default | Description     | Required |
+|----------|---------|---------|-----------------|----------|
+| json     | boolean | false   | Convert to JSON | -        |
 
 ### Standard
 
@@ -1485,9 +1485,9 @@ $('ref:element').show();
 
 Get unique siblings of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|filter|[selection](#selection)|-|Filter selection|✔|
+| Variable | Type                    | Default | Description      | Required |
+|----------|-------------------------|---------|------------------|----------|
+| filter   | [selection](#selection) | -       | Filter selection | ✔        |
 
 ```html
 <p>Sibling paragraph</p>
@@ -1525,10 +1525,10 @@ $(ref:sibling).siblings('p');
 
 Get subset of selection matches from specified range
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|start|integer|-|Starting index|✔|
-|end|integer|-|Ending index|✔|
+| Variable | Type    | Default | Description    | Required |
+|----------|---------|---------|----------------|----------|
+| start    | integer | -       | Starting index | ✔        |
+| end      | integer | -       | Ending index   | ✔        |
 
 ```js
 import $ from'wee-dom';
@@ -1540,9 +1540,9 @@ $('li').slice(0, 3);
 
 Get inner text of first selection or set each matching selection's text
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|function, string|-|Text to set or callback|✔|
+| Variable | Type             | Default | Description             | Required |
+|----------|------------------|---------|-------------------------|----------|
+| value    | function, string | -       | Text to set or callback | ✔        |
 
 ```html
 <div class="js-element">Inner text</div>
@@ -1606,10 +1606,10 @@ $(ref:element').toggle();
 
 Toggle adding and removing class(es) from the specified element
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|className|function, string|-|Class name(s) or callback|✔|
-|state|boolean|-|Force add or remove|-|
+| Variable  | Type             | Default | Description               | Required |
+|-----------|------------------|---------|---------------------------|----------|
+| className | function, string | -       | Class name(s) or callback | ✔        |
+| state     | boolean          | -       | Force add or remove       | -        |
 
 ### Single
 
@@ -1645,9 +1645,9 @@ $('.element').toggleClass((i, className, state) => {
 
 Get value of first matching selection or set values of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|function, string|-|Class name(s) to add or callback|✔|
+| Variable | Type             | Default | Description                      | Required |
+|----------|------------------|---------|----------------------------------|----------|
+| value    | function, string | -       | Class name(s) to add or callback | ✔        |
 
 ### Get
 
@@ -1688,9 +1688,9 @@ $('ref:input').val((i, value) => {
 
 Get or set the width of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|function, string|-|Width to set or callback|✔|
+| Variable | Type             | Default | Description              | Required |
+|----------|------------------|---------|--------------------------|----------|
+| value    | function, string | -       | Width to set or callback | ✔        |
 
 ### Get
 
@@ -1736,9 +1736,9 @@ If no unit is provided pixels will be set.
 
 Wrap markup around each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|html|function, string|-|Wrapper HTML or callback|✔|
+| Variable | Type             | Default | Description              | Required |
+|----------|------------------|---------|--------------------------|----------|
+| html     | function, string | -       | Wrapper HTML or callback | ✔        |
 
 ### Markup
 
@@ -1798,9 +1798,9 @@ $('.books').wrap(function(i) {
 
 Wrap markup around the content of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|html|function, string|-|Wrapper HTML or callback|✔|
+| Variable | Type             | Default | Description              | Required |
+|----------|------------------|---------|--------------------------|----------|
+| html     | function, string | -       | Wrapper HTML or callback | ✔        |
 
 ### Markup
 

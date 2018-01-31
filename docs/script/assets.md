@@ -8,24 +8,24 @@ Don’t embed assets on requests where they aren’t needed, or needed immediate
 
 Load assets with specified set of options
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|options|object|-|Object parameters below|✔|
+| Variable | Type   | Default | Description             | Required |
+|----------|--------|---------|-------------------------|----------|
+| options  | object | -       | Object parameters below | ✔        |
 
 ### Configuration Object
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|async|boolean|true|Loads assets asynchronously, only applicable to scripts||
-|cache|boolean|true|Bust request cache with random querystring||
-|styles|string, array|-|Single CSS path or array of CSS paths|✔|
-|error|function|-|Failure callback||
-|files|string, array|-|Single file path or array of file paths|✔|
-|group|string|-|Optional reference for use with [ready](#ready)||
-|images|string, array|-|Single image path or array of image paths|✔|
-|scripts|string, array|-|Single JavaScript path or array of JavaScript paths|✔|
-|root|string|-|Root path or domain override for [root](#root)||
-|success|function|-|Success callback|-|
+| Variable | Type          | Default | Description                                             | Required |
+|----------|---------------|---------|---------------------------------------------------------|----------|
+| async    | boolean       | true    | Loads assets asynchronously, only applicable to scripts | -        |
+| cache    | boolean       | true    | Bust request cache with random querystring              | -        |
+| styles   | string, array | -       | Single CSS path or array of CSS paths                   | ✔        |
+| error    | function      | -       | Failure callback                                        | -        |
+| files    | string, array | -       | Single file path or array of file paths                 | ✔        |
+| group    | string        | -       | Optional reference for use with [ready](#ready)         | -        |
+| images   | string, array | -       | Single image path or array of image paths               | ✔        |
+| scripts  | string, array | -       | Single JavaScript path or array of JavaScript paths     | ✔        |
+| root     | string        | -       | Root path or domain override for [root](#root)          | -        |
+| success  | function      | -       | Success callback                                        | -        |
 
 ### Single File
 
@@ -88,11 +88,11 @@ $assets.ready('dynamicAssets', {
 ## $assets.ready
 When specified references are ready execute callback
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|group|string|-|Group reference name|✔|
-|options|object|-|Override any load configuration options||
-|poll|boolean|false|Poll the queue every 20 milliseconds for completion|-|
+| Variable | Type    | Default | Description                                         | Required |
+|----------|---------|---------|-----------------------------------------------------|----------|
+| group    | string  | -       | Group reference name                                | ✔        |
+| options  | object  | -       | Override any load configuration options             | -        |
+| poll     | boolean | false   | Poll the queue every 20 milliseconds for completion | -        |
 
 ### Check
 
@@ -122,10 +122,10 @@ $assets.ready('dynamicAssets', {
 
 Remove one or more files from the DOM
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|files|string, array|-|Single file path or file array|✔|
-|root|string|-|Root path or domain override for [root](#root)|-|
+| Variable | Type          | Default | Description                                    | Required |
+|----------|---------------|---------|------------------------------------------------|----------|
+| files    | string, array | -       | Single file path or file array                 | ✔        |
+| root     | string        | -       | Root path or domain override for [root](#root) | -        |
 
 ### Single File
 
@@ -149,9 +149,9 @@ $assets.remove([
 ## $assets.root
 Get current asset root or set with specified value
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|value|string|-|Root request path|✔|
+| Variable | Type   | Default | Description       | Required |
+|----------|--------|---------|-------------------|----------|
+| value    | string | -       | Root request path | ✔        |
 
 ### Set
 

@@ -58,6 +58,12 @@
             }
 
             return `<div class="code-split">${blocks.join('')}</div>`;
+          } else {
+            // If for some reason there are piped languages without a code
+            // split signal, use the first language
+            if (lang.indexOf('|') > -1) {
+              lang = lang.split('|')[0];
+            }
           }
 
           return buildTemplate(content, lang);
@@ -81,9 +87,9 @@
         smartypants: true,
         renderer: {
           code: Renderer.renderCode,
-        }
-      }
-    }
+        },
+      },
+    };
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>

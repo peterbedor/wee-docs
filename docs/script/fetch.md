@@ -8,47 +8,47 @@ Response object returned by all requests
 
 ### Properties
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|config|object|-|Request configuration||
-|data|object, string|-|Response data||
-|headers|object|-|Parse response headers||
-|request|object|-|XHR request object||
-|status|number|-|Response status code||
-|statusText|string|-|Response status text|-|
+| Variable   | Type           | Default | Description            | Required |
+|------------|----------------|---------|------------------------|----------|
+| config     | object         | -       | Request configuration  | -        |
+| data       | object, string | -       | Response data          | -        |
+| headers    | object         | -       | Parse response headers | -        |
+| request    | object         | -       | XHR request object     | -        |
+| status     | number         | -       | Response status code   | -        |
+| statusText | string         | -       | Response status text   | -        |
 
 ## $fetch
 
 Make Ajax request
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|options|object|-|Request options below|✔|
+| Variable | Type   | Default | Description           | Required |
+|----------|--------|---------|-----------------------|----------|
+| options  | object | -       | Request options below | ✔        |
 
 ### Options Object
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|url|string|-|Request location||
-|data|object, string|-|Data to be sent as the request body||
-|method |string|get|Request verb - `get`, `post`, `put`, `patch`, `delete`||
-|auth|object|-|Set `username` and `password` for HTTP Basic auth. Will set Authorization header||
-|baseUrl|string|-|Prepended to `url` unless `url` is absolute||
-|disableCache|boolean|false|Add query string to request to bypass browser caching||
-|headers|object|-|Custom headers to be sent with request||
-|jsonp|boolean, string|false|Make JSONP request. If a string is provided, it will be used for the query parameter name instead of the default name `callback`||
-|jsonpCallback|string|'jsonp1'|Name of function to be executed when JSONP response is returned||
-|onDownloadProgress|function|-|Allows handling of progress events for downloads||
-|onUploadProgress|function|-|Allows handling of progress events for uploads||
-|params|object|-|Object of properties that will be added to the query string of the request URL||
-|processData|boolean|true|Auto-format request||
-|responseType|string|json|Indicates type of data expected from server - `arraybuffer`, `blob`, `document`, `json`, `text`||
-|scope|object|-|Callback scope||
-|send|function|-|Callback that executes before AJAX request is made||
-|timeout|number|-|Set timeout for request||
-|transformRequest|function|-|Customize how request body is transformed before sending||
-|transformResponse|function|-|Customize format of response data||
-|validateStatus|function|-|Customize successful status code|-|
+| Variable           | Type            | Default  | Description                                                                                                                      | Required |
+|--------------------|-----------------|----------|----------------------------------------------------------------------------------------------------------------------------------|----------|
+| url                | string          | -        | Request location                                                                                                                 | -        |
+| data               | object, string  | -        | Data to be sent as the request body                                                                                              | -        |
+| method             | string          | get      | Request verb - `get`, `post`, `put`, `patch`, `delete`                                                                           | -        |
+| auth               | object          | -        | Set `username` and `password` for HTTP Basic auth. Will set Authorization header                                                 | -        |
+| baseUrl            | string          | -        | Prepended to `url` unless `url` is absolute                                                                                      | -        |
+| disableCache       | boolean         | false    | Add query string to request to bypass browser caching                                                                            | -        |
+| headers            | object          | -        | Custom headers to be sent with request                                                                                           | -        |
+| jsonp              | boolean, string | false    | Make JSONP request. If a string is provided, it will be used for the query parameter name instead of the default name `callback` | -        |
+| jsonpCallback      | string          | 'jsonp1' | Name of function to be executed when JSONP response is returned                                                                  | -        |
+| onDownloadProgress | function        | -        | Allows handling of progress events for downloads                                                                                 | -        |
+| onUploadProgress   | function        | -        | Allows handling of progress events for uploads                                                                                   | -        |
+| params             | object          | -        | Object of properties that will be added to the query string of the request URL                                                   | -        |
+| processData        | boolean         | true     | Auto-format request                                                                                                              | -        |
+| responseType       | string          | json     | Indicates type of data expected from server - `arraybuffer`, `blob`, `document`, `json`, `text`                                  | -        |
+| scope              | object          | -        | Callback scope                                                                                                                   | -        |
+| send               | function        | -        | Callback that executes before AJAX request is made                                                                               | -        |
+| timeout            | number          | -        | Set timeout for request                                                                                                          | -        |
+| transformRequest   | function        | -        | Customize how request body is transformed before sending                                                                         | -        |
+| transformResponse  | function        | -        | Customize format of response data                                                                                                | -        |
+| validateStatus     | function        | -        | Customize successful status code                                                                                                 | -        |
 
 ### Get
 
@@ -124,11 +124,11 @@ Convenience method for performing post requests
 
 ### Parameters
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|url|string|-|Request location|✔|
-|data|object|-|Data to be sent as request body|✔|
-|options|object|-|[Request options](#fetch)|-|
+| Variable | Type   | Default | Description                     | Required |
+|----------|--------|---------|---------------------------------|----------|
+| url      | string | -       | Request location                | ✔        |
+| data     | object | -       | Data to be sent as request body | ✔        |
+| options  | object | -       | [Request options](#fetch)       | -        |
 
 ### Simple
 
@@ -157,11 +157,11 @@ Convenience method for performing put requests
 
 ### Parameters
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|url|string|-|Request location|✔|
-|data|object|-|Data to be sent as request body|✔|
-|options|object|-|[Request options](#fetch)|-|
+| Variable | Type   | Default | Description                     | Required |
+|----------|--------|---------|---------------------------------|----------|
+| url      | string | -       | Request location                | ✔        |
+| data     | object | -       | Data to be sent as request body | ✔        |
+| options  | object | -       | [Request options](#fetch)       | -        |
 
 ### Simple
 
@@ -190,11 +190,11 @@ Convenience method for performing patch requests
 
 ### Parameters
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|url|string|-|Request location|✔|
-|data|object|-|Data to be sent as request body|✔|
-|options|object|-|[Request options](#fetch)|-|
+| Variable | Type   | Default | Description                     | Required |
+|----------|--------|---------|---------------------------------|----------|
+| url      | string | -       | Request location                | ✔        |
+| data     | object | -       | Data to be sent as request body | ✔        |
+| options  | object | -       | [Request options](#fetch)       | -        |
 
 ### Simple
 
@@ -223,10 +223,10 @@ Convenience method for performing get requests
 
 ### Parameters
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|url|string|-|Request location|✔|
-|options|object|-|[Request options](#fetch)|-|
+| Variable | Type   | Default | Description               | Required |
+|----------|--------|---------|---------------------------|----------|
+| url      | string | -       | Request location          | ✔        |
+| options  | object | -       | [Request options](#fetch) | -        |
 
 ### Simple
 
@@ -255,10 +255,10 @@ Convenience method for performing delete requests
 
 ### Parameters
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|url|string|-|Request location|✔|
-|options|object|-|[Request options](#fetch)|-|
+| Variable | Type   | Default | Description               | Required |
+|----------|--------|---------|---------------------------|----------|
+| url      | string | -       | Request location          | ✔        |
+| options  | object | -       | [Request options](#fetch) | -        |
 
 ### Simple
 
