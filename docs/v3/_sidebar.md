@@ -2,7 +2,7 @@
     - [Structure](/docs/v3/start/structure)
     - [Markup](/docs/v3/start/markup)
 - CLI
-    - [Commands](/docs/v3/)
+    - [Commands](/docs/v3/cli/commands)
 - Build
     - [Config](/docs/v3/)
 	- [Commands](/docs/v3/)
