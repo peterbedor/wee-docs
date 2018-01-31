@@ -1,5 +1,5 @@
 - Start
-    - [Structure](/docs/v3/)
+    - [Structure](/docs/v3/start/structure)
     - [Markup](/docs/v3/)
 - CLI
     - [Commands](/docs/v3/)
