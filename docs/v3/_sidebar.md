@@ -17,7 +17,7 @@
 	- [Chain](/docs/v3/script/chain)
 - **Script**
 	- [Chain](/docs/v3/script/chain)
-    - [Core](/docs/v3/)
+    - [Core](/docs/v3/script/core)
 	- [Animate](/docs/v3/)
     - [Assets](/docs/v3/)
     - [Fetch](/docs/v3/)
