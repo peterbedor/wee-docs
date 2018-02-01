@@ -104,7 +104,7 @@ You can use them for paths and versions for instance.
 <scriptsrc="/js/script.min.js?v"></script>
 ```
 
-Data can also be set or overridden in individual content files or within the [section configuration](https://www.weepower.com/generator/config#sections).
+Data can also be set or overridden in individual content files or within the [section configuration](/docs/v3/generator/config?id=sections).
 
 ## Env
 
