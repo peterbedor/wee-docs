@@ -127,7 +127,7 @@ This works the same as the CSS section. If you have JavaScript files that you wo
 
 ### Validate
 
-The validation section controls which settings are used for [JSCS](jscs.info) and [JSHint](jshint.com) code style and quality tools. Set either to false to disable them otherwise you can update the path to point to any config file or modify the default files provided in the source directory. Setting watch to false disables continuous validation and only allows [on-demand validation](https://www.weepower.com/build/commands#validate).
+The validation section controls which settings are used for [JSCS](jscs.info) and [JSHint](jshint.com) code style and quality tools. Set either to false to disable them otherwise you can update the path to point to any config file or modify the default files provided in the source directory. Setting watch to false disables continuous validation and only allows [on-demand validation](/docs/v3/build/commands?id=validate).
 
 ```json
 "validate": {
