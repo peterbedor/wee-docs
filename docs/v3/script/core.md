@@ -4,24 +4,11 @@
 
 Get matches to specified selector or return parsed HTML
 
-VariableTypeDefaultDescriptionRequired
-selector
+| Variable      | Type                                                   | Default  | Description                     | Required  |
+| ------------- |:------------------------------------------------------:| --------:| -------------------------------:| ---------:|
+| selector     	| [selection](https://www.weepower.com/script#selection) | -        | Target selection or HTML string | ✔         |
+| context      	| [selection](https://www.weepower.com/script#selection) | document | Context selection               | -         |
 
-[selection](https://www.weepower.com/script#selection)
-
--
-
-Target selection or HTML string
-
-													✔
-											
-context
-
-[selection](https://www.weepower.com/script#selection)
-
-document
-
-Context selection
 
 ```js
     Wee.$('.js-element li');
@@ -55,7 +42,7 @@ Pre-fetched elements can be selected by using the ‘ref:name’ format.
     [node, node, ...]
 ```
 
-References can’t be chained like `$('ref:element .child')`. To scope a selection within a reference pass the ref selector as the context argument like `$('.child', 'ref:element')`.
+Note: References can’t be chained like `$('ref:element .child')`. To scope a selection within a reference pass the ref selector as the context argument like `$('.child', 'ref:element')`.
 
 ### Multiple
 
@@ -63,7 +50,9 @@ Multiple selectors can be concatenated with commas. You can even mix refs with s
 
 ```js
     Wee.$('ref:element, .js-element li');
+```
 
+```js
     [node, node, ...]
 ```
 
@@ -91,32 +80,11 @@ To use another query engine set the global `WeeSelector` variable. This variable
 
 Extend existing controller with additional methods and properties
 
-VariableTypeDefaultDescriptionRequired
-a
-
-string, object
-
--
-
-Controller name or core methods
-
-													✔
-											
-b
-
-object
-
--
-
-Public methods and properties
-
-c
-
-object
-
--
-
-Private methods and properties
+| Variable  | Type           | Default  | Description                     | Required  |
+| --------- |:--------------:| --------:| -------------------------------:| ---------:|
+| a     	| string, object | -        | Controller name or core methods | ✔         |
+| b     	| object         | -        | Public methods and properties   | -         |
+| c     	| object         | -        | Private methods and properties  | -         |
 
 ### Extend Controller
 ```js
@@ -163,61 +131,19 @@ Create namespaced controller
 
 Controllers serve as the wrapper for custom script. They can be created per page, section, or for specific reusable components. If placed in your build directory you easily create a well-organized, extensible structure.
 
-VariableTypeDefaultDescriptionRequired
-name
-
-string
-
--
-
-Controllername
-
-													✔
-											
-pub
-
-object
-
--
-
-Public methods and properties
-
-													✔
-											
-priv
-
-object
-
--
-
-Private methods and properties
-
-options
-
-object
-
--
-
-Object properties below
+| Variable  | Type     | Default  | Description                    | Required  |
+| --------- |:--------:| --------:| ------------------------------:| ---------:|
+| name     	| string   | -        | Controller name                | ✔         |
+| pub     	| object   | -        | Public methods and properties  | ✔         |
+| priv    	| object   | -        | Private methods and properties | -         |
+| options   | object   | -        | Object properties below        | -         |
 
 ### Options Object
 
-VariableTypeDefaultDescriptionRequired
-args
-
-object
-
--
-
-Passed to _construct method (both public and private) if defined
-
-instance
-
-boolean
-
-true
-
-Instructs make method to instantiate controller
+| Variable  | Type     | Default  | Description                                                       | Required  |
+| --------- |:--------:| --------:| -----------------------------------------------------------------:| ---------:|
+| args     	| object   | -        | Passed to _construct method (both public and private) if defined  | -         |
+| instance  | boolean  | true     | Instructs make method to instantiate controller                   | -         |
 
 ### Public
 ```js
@@ -364,32 +290,11 @@ You can easily leverage existing controllers to extend into new controllers by u
 
 Concatenate values into global storage
 
-VariableTypeDefaultDescriptionRequired
-key
-
-string
-
--
-
-Storage reference or value
-
-													✔
-											
-value
-
-any
-
--
-
-Storage value or prepend value
-
-prepend
-
-boolean
-
-false
-
-Prepend value to storage
+| Variable  | Type     | Default  | Description                    | Required  |
+| --------- |:--------:| --------:| ------------------------------:| ---------:|
+| key    	| string   | -        | Storage reference or value     | ✔         |
+| value     | any      | -        | Storage value or prepend value | -         |
+| prepend   | boolean  | false    | Prepend value to storage       | -         |  
 
 ```js
     Wee.$concat('key', 1);
@@ -404,27 +309,11 @@ Prepend value to storage
 
 Generate a delta from two objects
 
-VariableTypeDefaultDescriptionRequired
-a
-
-object
-
--
-
-Original object
-
-													✔
-											
-b
-
-object
-
--
-
-Compared object
-
-													✔
-											
+| Variable  | Type     | Default  | Description     | Required  |
+| --------- |:--------:| --------:| ---------------:| ---------:|
+| a   	    | object   | -        | Original object | ✔         |
+| b         | object   | -        | Compared object | ✔         |
+								
 ```js
     Wee.$diff({
         key1: 'Don',
@@ -472,32 +361,11 @@ Compared object
 
 Remove key or value from global array
 
-VariableTypeDefaultDescriptionRequired
-key
-
-string
-
--
-
-Storage reference or value
-
-													✔
-											
-value
-
-any
-
--
-
-Storage key, value, or prepend value
-
-prepend
-
-boolean
-
-false
-
-Prepend value to storage
+| Variable  | Type    | Default  | Description                          | Required  |
+| --------- |:-------:| --------:| ------------------------------------:| ---------:|
+| key   	| string  | -        | Storage reference or value           | ✔         |
+| value     | any     | -        | Storage key, value, or prepend value | -         |
+| prepend   | boolean | false    | Prepend value to storage             | -         |
 
 ### Key
 
@@ -529,69 +397,20 @@ Prepend value to storage
 
 Execute function for each matching selection
 
-VariableTypeDefaultDescriptionRequired
-target
-
-[selection](/script#selection)
-
--
-
-Target selection
-
-													✔
-											
-fn
-
-[function](/script#functions)
-
--
-
-Callback function
-
-													✔
-											
-options
-
-object
-
--
-
-Object properties below
+| Variable  | Type                            | Default  | Description               | Required  |
+| --------- |:-------------------------------:| --------:| -------------------------:| ---------:|
+| target  	| [selection](/script#selection)  | -        | Target selection          | ✔         |
+| fn        | [function](/script#functions)   | -        | Callback function         | ✔         |
+| options   | object                          | -        | Object properties below   | -         |
 
 ### Options Object
 
-VariableTypeDefaultDescriptionRequired
-args
-
-array
-
--
-
-Callback arguments
-
-context
-
-[selection](/script#selection)
-
-document
-
-Callback context
-
-scope
-
-object
-
--
-
-Callback scope
-
-reverse
-
-boolean
-
-false
-
-Reverse the order of execution
+| Variable  | Type                           | Default  | Description                      | Required  |
+| --------- |:------------------------------:| --------:| --------------------------------:| ---------:|
+| args 	    | array                          | -        | Callback arguments               | -         |
+| context   | [selection](/script#selection) | document | Callback context                 | -         |
+| scope     | object                         | -        | Callback scope                   | -         |
+| reverse   | boolean                        | false    | Reverse the order of execution   | -         |
 
 ### Simple
 
@@ -611,28 +430,16 @@ Reverse the order of execution
     });
 ```
 
-The element and index are injected as the first two callback parameters.
+Note: The element and index are injected as the first two callback parameters.
 
 ## $env
 
 Get current environment or set current environment against specified object
 
-VariableTypeDefaultDescriptionRequired
-rules
-
-object
-
--
-
-Environmental rules
-
-fallback
-
-string
-
-"local"
-
-Default environment
+| Variable  | Type   | Default  | Description            | Required  |
+| --------- |:------:| --------:| ----------------------:| ---------:|
+| rules	    | object | -        | Environmental rules    | -         |
+| fallback  | string | "local"  | Default environment    | -         |
 
 ### Set
 
@@ -671,27 +478,11 @@ Determine if the current environment is SSL encrypted
 
 Compare two values for strict equality
 
-VariableTypeDefaultDescriptionRequired
-a
-
-object
-
--
-
-original value
-
-													✔
-											
-b
-
-object
-
--
-
-Compared value
-
-													✔
-											
+| Variable  | Type   | Default  | Description       | Required  |
+| --------- |:------:| --------:| -----------------:| ---------:|
+| a	        | object | -        | original value    | ✔         |
+| b         | object | -        | compared value    | ✔         |
+								
 ```js
     Wee.$equals(1, 2);
     Wee.$equals({
