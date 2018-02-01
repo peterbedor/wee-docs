@@ -332,18 +332,21 @@ Note: You can pass a config object to controller constructors.
 
 The destruct method is executed to perform additional clean up or other actions when the controller is destroyed using `this.$destroy()` or `Wee.controllerName.$destroy()` outside the controller.
 
+```js
     Wee.fn.make('controllerName', {
         _destruct: function() {
             this.save();
         }
     });
+```
 
-The construct and destruct methods can be placed in the public object and/or the private object.
+Note: The construct and destruct methods can be placed in the public object and/or the private object.
 
 ### Inheritance
 
 You can easily leverage existing controllers to extend into new controllers by using ‘childController:parentController’ controller name syntax.
 
+```js
     Wee.fn.make('parentName', {
         base: function() {
             // Base logic
@@ -355,6 +358,7 @@ You can easily leverage existing controllers to extend into new controllers by u
             this.base();
         }
     });
+```
 
 ## $concat
 
@@ -387,10 +391,14 @@ false
 
 Prepend value to storage
 
+```js
     Wee.$concat('key', 1);
     Wee.$concat('key', [2, 3], true);
+```
 
+```js
     [2, 3, 1]
+```
 
 ## $diff
 
@@ -417,7 +425,7 @@ Compared object
 
 													✔
 											
-
+```js
     Wee.$diff({
         key1: 'Don',
         key2: true,
@@ -431,7 +439,9 @@ Compared object
         },
         key4: 'new'
     });
+```
 
+```js
     {
         key1: {
             after: "Don",
@@ -456,6 +466,7 @@ Compared object
             type: "c"
         }
     }
+```
 
 ## $drop
 
@@ -490,22 +501,29 @@ Prepend value to storage
 
 ### Key
 
+```js
     Wee.$set('key', {
         key1: 'Don',
         key2: 'Draper'
     });
     Wee.$drop('key.key2');
-
+```
+```js
     {
         key1: 'Don'
     }
+```
 
 ### Value
 
+```js
     Wee.$set('key', [1, 2, 3]);
     Wee.$drop('key', 2);
+```
 
+```js
     [1, 3]
+```
 
 ## $each
 
@@ -577,18 +595,21 @@ Reverse the order of execution
 
 ### Simple
 
+```js
     Wee.$each('ref:element', function(el, i) {
         // Callback logic
     });
-
+```
 ### Advanced
 
+```js
     Wee.$each('ref:element', function(el, i) {
         // Callback logic
     }, {
         reverse: true,
         scope: this
     });
+```
 
 The element and index are injected as the first two callback parameters.
 
@@ -617,27 +638,35 @@ Default environment
 
 The key values can either be strings for a direct match or a [functions](/script#functions) for more complex evaluation. If a function is provided the response should be a boolean. If no match is found the default environment value is used.
 
+```js
     Wee.$env({
         prod: 'www.weepower.com',
         stage: 'stage.weepower.com'
     });
+```
 
+```js
     "prod"
+```
 
 ### Get
-
+```js
     Wee.$env();
+```
 
+```js
     "prod"
-
+```
 ## $envSecure
 
 Determine if the current environment is SSL encrypted
-
+```js
     Wee.$envSecure();
+```
 
+```js
     true
-
+```
 ## $equals
 
 Compare two values for strict equality
@@ -663,7 +692,7 @@ Compared value
 
 													✔
 											
-
+```js
     Wee.$equals(1, 2);
     Wee.$equals({
         key: true
@@ -671,11 +700,13 @@ Compared value
         key: false
     });
     Wee.$equals([1, 2, 3], [1, 2, 3]);
+```
 
+```js
     false
     false
     true
-
+```
 ## $exec
 
 Execute specified function or controller method
@@ -715,9 +746,10 @@ object
 -
 
 Function scope
-
+```js
     Wee.$exec('controllerName:methodName');
-
+```
+```js
     Wee.$exec('controllerName:methodName', {
         scope: this,
         args: [
@@ -725,17 +757,20 @@ Function scope
             123
         ]
     });
-
+```
+```js
     Wee.$exec(function() {
         //
     });
-
+```
+```js
     Wee.$exec([
         'controllerName:methodName',
         'controllerName2:methodName2'
     ]);
+```
 
-This method is mostly intended for external use although it can be used anywhere. Controller methods are best executed in the form of `Wee.controllerName.methodName()`.
+Note: This method is mostly intended for external use although it can be used anywhere. Controller methods are best executed in the form of `Wee.controllerName.methodName()`.
 
 ## $get
 
@@ -774,23 +809,30 @@ object
 
 [Callback options](/script#functions)
 
+```js
     Wee.$get('key');
     Wee.$get('key', 'Fallback');
     Wee.$get('key');
     Wee.$get('key', 'Fallback', true);
     Wee.$get('key');
+```
 
+```js
     null
     Fallback
     null
     Fallback
     Fallback
-
+```
 ### Get All
 
+```js
     Wee.$get();
+```
 
+```js
     {object}
+```
 
 ## $has
 
@@ -817,20 +859,27 @@ Storage key or value
 
 ### Key
 
+```js
     Wee.$set('key', {
         key1: 'Don'
     });
     Wee.$has('key.key1');
+```
 
+```js
     true
+```
 
 ### Value
 
+```js
     Wee.$set('key', [1, 2, 3]);
     Wee.$has('key', 4);
+```
 
+```js
     false
-
+```
 ## $isArray
 
 Determine if value is an array
@@ -846,15 +895,18 @@ Value to evaluate
 
 													✔
 											
-
+```js
     Wee.$isArray([
         'string',
         'string2'
     ]);
     Wee.$isArray('string');
+```
 
+```js
     true
     false
+```
 
 ## $isFunction
 
@@ -897,13 +949,15 @@ Value to evaluate
 
 													✔
 											
-
+```js
     Wee.$isObject({});
     Wee.$isObject('string');
+```
 
+```js
     true
     false
-
+```
 ## $isString
 
 Determine if value is a string
@@ -919,13 +973,15 @@ Value to evaluate
 
 													✔
 											
-
+```js
     Wee.$isString({});
     Wee.$isString('string');
+```
 
+```js
     false
     true
-
+```
 ## $map
 
 Translate items in an array or selection to new array
@@ -979,20 +1035,26 @@ object
 Function scope
 
 ### Array
-
+```js
     Wee.$map([1, 2, 3], function(val) {
         return val + 1;
     });
+```
 
+```js
     [2, 3, 4]
+```
 
 ### Selection
 
+```js
     Wee.$map('ref:element', function(el, i) {
         return $(el).text();
     });
-
+```
+```js
     ["text", "text", ...]
+```
 
 ## $merge
 
@@ -1016,18 +1078,21 @@ any
 -
 
 Storage value or prepend value
-
+```js
     Wee.$merge('key', {
         key1: 'value'
     });
     Wee.$merge('key', {
         key2: 'value2'
     });
+```
 
+```js
     {
         key1: "value",
         key2: "value"
     }
+```
 
 ## $observe
 
@@ -1095,23 +1160,22 @@ value
 
 Specific value to trigger callback
 
-### 
-Basic
-
+### Basic
+```js
     Wee.$observe('key', function(data, type) {
         console.log(data);
     }, {
         recursive: true
     });
     Wee.$set('key.nested', 5);
-
+```
+```js
     {
         nested: 5
     }
-
-### 
-Advanced
-
+```
+### Advanced
+```js
     Wee.$set('key', 1);
     Wee.$observe('key', function(data, type, diff) {
         if (type == 'set' && diff.before === 1) {
@@ -1123,9 +1187,10 @@ Advanced
         value: 2
     });
     Wee.$set('key', 2);
-
+```
+```js
     2
-
+```
 ## $parseHTML
 
 Create document fragment from an HTML string
@@ -1141,9 +1206,10 @@ HTML to convert
 
 													✔
 											
-
+```js
     var el = Wee.$parseHTML('<span class="testing">Testing</span>');
     Wee.$hasClass(el.childNodes, 'testing');
+```
 
 ## $push
 
@@ -1175,15 +1241,17 @@ false
 -
 
 Prepend value to storage
-
+```js
     Wee.$push('key', 'Success');
     Wee.$push('key', 'Success 2');
     
     Wee.$get('key');
     Wee.$get('key.0');
-
+```
+```js
     ["Success", "Success 2"]
     Success
+```
 
 ## $serialize
 
@@ -1199,8 +1267,7 @@ object
 Object to serialize
 
 													✔
-											
-
+```js										
     Wee.$serialize({
         key1: 123,
         key2: [
@@ -1208,8 +1275,11 @@ Object to serialize
             'value 2'
         ]
     });
+```
 
+```js
     key1=123&key2[]=value+1&key2[]=value+2
+```
 
 Only the first level of the object is serialized.
 
@@ -1245,17 +1315,21 @@ object
 [Callback options](https://www.weepower.com/script#functions)
 
 ### Simple
-
+```js
     Wee.$set('key', 'Success');
-
+```
+```js
     "Success"
-
+```
 ### Callbacks
 
+```js
     Wee.$set('key', function() {
         return 5 * 5;
     });
+```
 
+```js
     Wee.$set('key', 'controllerName:publicFunction', {
         scope: this,
         args: [
@@ -1263,7 +1337,7 @@ object
             123
         ]
     });
-
+```
 ## $setRef
 
 Add ref elements to datastore
@@ -1279,15 +1353,23 @@ document
 
 Context selection
 
+```html
     <div data-ref="element"></div>
+```
 
+```js
     Wee.$setRef();
+```
 
+```js
     $('ref:element');
+```
 
+```html
     <div data-ref="element"></div>
+```
 
-This function is called by default on page load and after relevant DOM manipulation. Subsequent calls clear the cache for the provided context and reset the references.
+Note: This function is called by default on page load and after relevant DOM manipulation. Subsequent calls clear the cache for the provided context and reset the references.
 
 ## $setVar
 
@@ -1297,34 +1379,50 @@ Add metadata variables to datastore
 
 Available data-set values are pushed into the global storage for later retrieval.
 
+```html
     <div data-set="key" data-value="value"></div>
+```
 
+```js
     Wee.$setVar();
+```
 
+```js
     Wee.$get('key');
+```
 
+```js
     "value"
+```
 
 ### Value Array
 
 To push into an array instead of setting a single value append array brackets to the end of the key.
 
+```html
     <div data-set="key[]" data-value="value1"></div>
     <div data-set="key[]" data-value="value2"></div>
     <div data-set="key[]" data-value="value3"></div>
+```
 
+```js
     Wee.$get('key');
+```
 
+```js
     ["value1", "value2", "value3"]
+```
 
 ### Simple Object
 
 To create a keyed object you can pass keys into the array notation
-
+```html
     <div data-set="obj.key1" data-value="value1"></div>
     <div data-set="obj.key2" data-value="value2"></div>
     <div data-set="obj.key3" data-value="value3"></div>
+```
 
+```js
     Wee.$get('obj');
 
     {
@@ -1332,15 +1430,18 @@ To create a keyed object you can pass keys into the array notation
         "key2": "value2"
         "key3": "value3"
     }
+```
 
 ### Complex Object
 
 You can also nest objects by continuing the array notation.
-
+```html
     <div data-set="obj.key1" data-value="value1"></div>
     <div data-set="obj.key2.sub1" data-value="value2"></div>
     <div data-set="obj.key2.sub2" data-value="value3"></div>
+```
 
+```js
     Wee.$get('obj');
 
     {
@@ -1350,14 +1451,21 @@ You can also nest objects by continuing the array notation.
             "sub2": "value2"
         }
     }
+```
 
 ### JSON
 
+```html
     <div data-set="obj" data-value='{"key": true}'></div>
+```
 
+```js
     Wee.$get('obj.key');
+```
 
+```js
     true
+```
 
 This function is called by default on page load.
 
@@ -1376,12 +1484,15 @@ Value to convert to array
 
 													✔
 											
-
+```js
     Wee.$toArray(['test']);
     Wee.$toArray('test');
+```
 
+```js
     ["test"]
     ["test"]
+```
 
 ## $trigger
 
@@ -1398,13 +1509,16 @@ Storage reference
 
 													✔
 											
-
+```js
     Wee.$observe('key', function() {
         console.log('Success');
     });
     Wee.$trigger('key');
+```
 
+```js
     Success
+```
 
 ## $type
 
@@ -1421,18 +1535,19 @@ Object to evaluate
 
 													✔
 											
-
+```js
     Wee.$type([
         'string',
         'string2'
     ]);
     Wee.$type({});
     Wee.$type('string');
-
+```
+```js
     array
     object
     string
-
+```
 ## $unique
 
 Create new array with only unique values from source array
@@ -1448,10 +1563,13 @@ Value array
 
 													✔
 											
-
+```js
     Wee.$unique([1, 1, 2, 3, 3, 3, 4]);
+```
 
+```js
     [1, 2, 3, 4]
+```
 
 ## $unobserve
 
@@ -1467,13 +1585,13 @@ string
 Storage reference
 
 ### Remove All
-
+```js
     Wee.$unobserve();
-
+```
 ### Remove Single
-
+```js
     Wee.$unobserve('key.nested');
-
+```
 ## $unserialize
 
 Convert serialized string back into an object
@@ -1489,9 +1607,10 @@ Serialized string
 
 													✔
 											
-
+```js
     Wee.$unserialize('key1=123&key2[]=value+1&key2[]=value+2');
-
+```
+```js
     {
         "key1": "123",
         "key2[]": [
@@ -1499,6 +1618,7 @@ Serialized string
             "value 2"
         ]
     }
+```
 
 ## $extend
 
@@ -1544,6 +1664,7 @@ Additional objects...
 ### Clone Object
 
 If the second argument is an empty object literal, the third object will be cloned.
+
 ```js
     Wee.$extend(true, {}, {
         key1: 'val1',
