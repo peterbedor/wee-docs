@@ -6,10 +6,21 @@ Wee begins with a Less stylesheet full of variables, a browser reset, a set of [
 
 ## browserconfig
 
-Introduced in IE11, the [browserconfig](https://msdn.microsoft.com/en-us/library/dn320426(v=vs.85).aspx) file defines the icon configuration for Windows. By default the browser will look for the file in the root of the website.
+Introduced in IE11, the [browserconfig](https://msdn.microsoft.com/en-us/library/dn320426%28v=vs.85%29.aspx) file defines the icon configuration for Windows. By default the browser will look for the file in the root of the website.
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?><browserconfig><msapplication><tile><square70x70logosrc="/assets/img/icons/tile.png"/><square150x150logosrc="/assets/img/icons/tile.png"/><square310x310logosrc="/assets/img/icons/tile.png"/><wide310x150logosrc="/assets/img/icons/tile-wide.png"/><TileColor>#168eaf</TileColor></tile></msapplication></browserconfig>
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logosrc="/assets/img/icons/tile.png"/>
+            <square150x150logosrc="/assets/img/icons/tile.png"/>
+            <square310x310logosrc="/assets/img/icons/tile.png"/>
+            <wide310x150logosrc="/assets/img/icons/tile-wide.png"/>
+            <TileColor>#168eaf</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>
 ```
 
 ## htaccess ##
@@ -20,7 +31,7 @@ Regardless if you’re running an xml-compatible web server the principles still
 
 The maintenance block serves as a quick mechanism to toggle a temporary redirect to a maintenance page. It also has an IP exclusion to ensure that internal traffic can still access the full site.
 
-```xml
+```apacheconf
 RewriteCond %{REQUEST_URI} !^/maintenance\.html$
 RewriteCond %{REMOTE_ADDR} !^123\.456\.789\.
 RewriteCond $1 !^(assets) [NC]
@@ -29,9 +40,9 @@ RewriteRule ^(.*)$ /maintenance.html [R=307,L]
 
 ### Setup
 
-A couple basic xml settings are made and the X-UA-Compatible header and encoding are set. If uncommented the two corresponding meta tags should be removed from the [HTML head](https://www.weepower.com/start/markup#meta).
+A couple basic xml settings are made and the X-UA-Compatible header and encoding are set. If uncommented the two corresponding meta tags should be removed from the [HTML head](/docs/v3/start/markup?id=meta).
 
-```xml
+```apacheconf
 RewriteEngine On
 Options +FollowSymLinks -Indexes -MultiViews
 
@@ -51,7 +62,7 @@ Header always set Strict-Transport-Security "max-age=7776000; includeSubDomains"
 
 [CORS headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) open up web servers for cross-domain access. This is particularly helpful when serving assets through a pull CDN zone.
 
-```xml
+```apacheconf
 # Cross-origin images
 <FilesMatch "\.(bmp|gif|ico|jpe?g|png|svg|webp)$">
     SetEnvIf Origin ":" IS_CORS
@@ -68,7 +79,7 @@ Header always set Strict-Transport-Security "max-age=7776000; includeSubDomains"
 
 It’s important to intercept common HTTP errors on the host level with custom pages.
 
-```xml
+```apacheconf
 ErrorDocument 404 /404.html
 ```
 
@@ -76,7 +87,7 @@ ErrorDocument 404 /404.html
 
 Add your project’s specific rules to this section.
 
-```xml
+```apacheconf
 # Custom redirects and rewrites
 ```
 
@@ -84,12 +95,20 @@ Add your project’s specific rules to this section.
 
 Without specific redirects most servers will allow multiple URLs to access the same endpoint. Funnel requests through redirect logic to ensure there is only one true canonical address.
 
-```xml
+```apacheconf
 # Force www
 RewriteCond %{HTTP_HOST} !^www.weepower.com$ [NC]
-RewriteRule ^(.*)$ http://www.weepower.com/$1 [R=301,L]# Remove www (use either force or remove)# RewriteCond %{HTTP_HOST} !^weepower.com$ [NC]# RewriteRule ^(.*)$ http://weepower.com/$1 [R=301,L]# Force SSL
+RewriteRule ^(.*)$ http://www.weepower.com/$1 [R=301,L]
+
+# Remove www (use either force or remove)
+# RewriteCond %{HTTP_HOST} !^weepower.com$ [NC]
+# RewriteRule ^(.*)$ http://weepower.com/$1 [R=301,L]
+
+# Force SSL
 RewriteCond %{HTTPS} !on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]# Remove trailing slash
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Remove trailing slash
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [R=301,L]
 

@@ -67,7 +67,7 @@ The [Open Graph protocol](http://ogp.me/) enables any web page to become a rich 
 <meta property="og:image" content="https://www.weepower.com/assets/img/share.png" itemprop="image">
 ```
 
-In the sample HTML Wee dual-purposes the Open Graph tags as [Schema properties](https://www.weepower.com/start/markup#schema) for the WebPage scope defined on the document root.
+In the sample HTML Wee dual-purposes the Open Graph tags as [Schema properties](/docs/v3/start/markup?id=schema) for the WebPage scope defined on the document root.
 
 ## Publisher
 

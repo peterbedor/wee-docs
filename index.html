@@ -21,7 +21,7 @@
         flex: 1;
       }
       .code-split pre:first-child {
-        margin-right: 20px;
+        margin-right: 2.4em;
       }
     }
   </style>
@@ -39,8 +39,10 @@
       }
 
       function highlight(content, lang) {
-        if (lang) {
-          return Prism.highlight(content, Prism.languages[lang]);
+        const language = Prism.languages[lang];
+
+        if (language) {
+          return Prism.highlight(content, language);
         }
 
         return content;
@@ -96,5 +98,8 @@
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-scss.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-apacheconf.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-less.min.js"></script>
 </body>
 </html>

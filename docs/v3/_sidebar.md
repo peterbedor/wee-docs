@@ -8,12 +8,12 @@
 	- [Commands](/docs/v3/build/commands)
 	- [Modules](/docs/v3/build/modules)
 - Generate
-	- [Config](/docs/v3/)
-	- [Usage](/docs/v3/)
-- Style
-    - [Variables](/docs/v3/)
-    - [Mixins](/docs/v3/)
-    - [Classes](/docs/v3/)
+	- [Config](/docs/v3/generate/config)
+	- [Usage](/docs/v3/generate/usage)
+- Styles
+    - [Variables](/docs/v3/styles/variables)
+    - [Mixins](/docs/v3/styles/mixins)
+    - [Classes](/docs/v3/styles/classes)
 - Script
 	- [Chain](/docs/v3/script/chain)
     - [Core](/docs/v3/)

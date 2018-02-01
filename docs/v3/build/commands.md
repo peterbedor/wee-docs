@@ -8,12 +8,12 @@ Quickly scaffold core Wee structures
 
 ### Controller
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|name|string|-|camelCase controller name|✔|
-|type|string|base|Define controller template to use|-|
+| Variable | Type   | Default | Description                       | Required |
+|----------|--------|---------|-----------------------------------|----------|
+| name     | string | -       | camelCase controller name         | ✔        |
+| type     | string | base    | Define controller template to use | -        |
 
-```
+```bash
 wee make:controller --name=controllerName
 ```
 
@@ -23,7 +23,7 @@ In this case, the type is also used as the name variable.
 
 The Extensions controller allows you to use several chainable variations of `-is-active` and `-is-disabled classes`.
 
-```
+```bash
 wee make:controller --type=extensions
 ```
 
@@ -78,7 +78,7 @@ Wee.fn.make('extensions', {
 
 The API controller scaffolding provides a convenient interface to Wee’s data request, allowing you to consolidate your data request logic in one place.
 
-```
+```bash
 wee make:controller --type=api
 ```
 
@@ -114,26 +114,26 @@ Wee.fn.make('api', {
 
 ### Module
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|name|string|-|camelCase module name|✔|
-|author|string|-|Module author||
-|autoload|boolean|true|autoload toggle||
-|extension|boolean|false|Extension toggle||
-|website|string|-|Website reference||
-|description|string|-|Internal module description|-|
+| Variable    | Type    | Default | Description                 | Required |
+|-------------|---------|---------|-----------------------------|----------|
+| name        | string  | -       | camelCase module name       | ✔        |
+| author      | string  | -       | Module author               | -         |
+| autoload    | boolean | true    | autoload toggle             |  -        |
+| extension   | boolean | false   | Extension toggle            |   -       |
+| website     | string  | -       | Website reference           |    -      |
+| description | string  | -       | Internal module description | -        |
 
-```
+```bash
 wee make:module --name=moduleName --extension=true
 ```
 
 ### Test
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|name|string|-|Title Cased test name|✔|
+| Variable | Type   | Default | Description           | Required |
+|----------|--------|---------|-----------------------|----------|
+| name     | string | -       | Title Cased test name | ✔        |
 
-```
+```bash
 wee make:test --name="Test Name"
 ```
 
@@ -141,7 +141,7 @@ wee make:test --name="Test Name"
 
 Remove unnecessary files and sample assets from the default install
 
-```
+```bash
 wee reset
 ```
 
@@ -153,6 +153,6 @@ Wee leverages [JSHint](jshint.com) and [JSCS](jscs.info) for automatic and manua
 
 To run validation on demand execute the command below
 
-```
+```bash
 wee validate
 ```
