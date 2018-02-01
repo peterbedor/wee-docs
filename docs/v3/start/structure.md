@@ -13,10 +13,10 @@ Introduced in IE11, the [browserconfig](https://msdn.microsoft.com/en-us/library
 <browserconfig>
     <msapplication>
         <tile>
-            <square70x70logosrc="/assets/img/icons/tile.png"/>
-            <square150x150logosrc="/assets/img/icons/tile.png"/>
-            <square310x310logosrc="/assets/img/icons/tile.png"/>
-            <wide310x150logosrc="/assets/img/icons/tile-wide.png"/>
+            <square70x70logo src="/assets/img/icons/tile.png"/>
+            <square150x150logo src="/assets/img/icons/tile.png"/>
+            <square310x310logo src="/assets/img/icons/tile.png"/>
+            <wide310x150logo src="/assets/img/icons/tile-wide.png"/>
             <TileColor>#168eaf</TileColor>
         </tile>
     </msapplication>

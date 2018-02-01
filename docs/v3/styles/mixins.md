@@ -458,7 +458,7 @@ background-repeat: no-repeat;
 background-size: 400px 300px;
 ```
 
-### Background Gradient ### (.doc__label .doc__variables__label)
+### Background Gradient
 
 | Variable | Type    | Default                                         | Description    | Required |
 |----------|---------|-------------------------------------------------|----------------|----------|
@@ -1334,7 +1334,7 @@ width: 100%;
 filter: grayscale(50%);
 ```
 
-### Blur ### (.doc__label .doc__variables__label)
+### Blur
 
 | Variable | Type | Default | Description | Required |
 |----------|------|---------|-------------|----------|
@@ -1499,7 +1499,7 @@ filter: drop-shadow('1px 1px 0 rgba(255, 255, 255, 0.4)');
 filter: drop-shadow('2px 1px 1pxrgba(0, 0, 0, 0.8)');
 ```
 
-## Font Family ## (#font-family .doc__title)
+## Font Family
 
 | Variable | Type            | Default                                  | Description       | Required |
 |----------|-----------------|------------------------------------------|-------------------|----------|
