@@ -4,7 +4,7 @@ Wee allows many methods to be chained to selectors by omitting the first argumen
 
 ## Animate
 
-[$(sel).tween(values, options)](/docs/v3/script/animate?id=#tween)
+[$(sel).tween(values, options)](/docs/v3/script/animate?id=tween)
 
 In this example, the target is faded out to full transparency.
 
@@ -18,15 +18,15 @@ In this example, the target is faded out to full transparency.
 
 ## Core
 
-[$(sel, context)](/docs/v3/script/script/core?id=#sel)
+[$(sel, context)](/docs/v3/script/script/core?id=sel)
 
-[$(sel).each(fn, options)](/docs/v3/script/core?id=##each)
+[$(sel).each(fn, options)](/docs/v3/script/core?id=each)
 
-[$(sel).map(fn, options)](/docs/v3/scriptscript/core?id=##map)
+[$(sel).map(fn, options)](/docs/v3/scriptscript/core?id=map)
 
-[$(sel).setRef()](/docs/v3/scriptscript/core?id=##setref)
+[$(sel).setRef()](/docs/v3/scriptscript/core?id=setref)
 
-[$(sel).setVar()](/docs/v3/script/core?id=#setvar)
+[$(sel).setVar()](/docs/v3/script/core?id=setvar)
 
 ### Reverse
 
