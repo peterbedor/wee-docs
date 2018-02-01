@@ -8,8 +8,8 @@
 	- [Commands](/docs/v3/build/commands)
 	- [Modules](/docs/v3/build/modules)
 - Generate
-	- [Config](/docs/v3/)
-	- [Usage](/docs/v3/)
+	- [Config](/docs/v3/generate/config)
+	- [Usage](/docs/v3/generate/usage)
 - Style
     - [Variables](/docs/v3/)
     - [Mixins](/docs/v3/)
