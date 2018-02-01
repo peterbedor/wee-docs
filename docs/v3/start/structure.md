@@ -40,7 +40,7 @@ RewriteRule ^(.*)$ /maintenance.html [R=307,L]
 
 ### Setup
 
-A couple basic xml settings are made and the X-UA-Compatible header and encoding are set. If uncommented the two corresponding meta tags should be removed from the [HTML head](https://www.weepower.com/start/markup#meta).
+A couple basic xml settings are made and the X-UA-Compatible header and encoding are set. If uncommented the two corresponding meta tags should be removed from the [HTML head](/docs/v3/start/markup?id=meta).
 
 ```apacheconf
 RewriteEngine On
