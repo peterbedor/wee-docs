@@ -15,7 +15,7 @@
     - [Mixins](/docs/v3/)
     - [Classes](/docs/v3/)
 - Script
-	- [Chain](/docs/v3/)
+	- [Chain](/docs/v3/script/chain)
     - [Core](/docs/v3/)
 	- [Animate](/docs/v3/)
     - [Assets](/docs/v3/)
