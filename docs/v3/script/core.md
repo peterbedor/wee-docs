@@ -4,10 +4,10 @@
 
 Get matches to specified selector or return parsed HTML
 
-| Variable      | Type                                                   | Default  | Description                     | Required  |
-| ------------- |:------------------------------------------------------:| --------:| -------------------------------:| ---------:|
-| selector     	| [selection](https://www.weepower.com/script#selection) | -        | Target selection or HTML string | ✔         |
-| context      	| [selection](https://www.weepower.com/script#selection) | document | Context selection               | -         |
+| Variable      | Type                                       | Default   | Description                     | Required  |
+| ------------- | -------------------------------------------| ----------| --------------------------------| ----------|
+| selector     	| [selection](/docs/v3/script?id=#selection) | -         | Target selection or HTML string | ✔         |
+| context      	| [selection](/docs/v3/script?id=#selection) | document  | Context selection               | -         |
 
 
 ```js
@@ -758,7 +758,6 @@ Attach callback to data storage change
 |options |object                       |-       |Observation options below|-       |
 
 ### Options Object 
-### (.doc__label .doc__variables__label)
 
 |Variable |Type    |Default |Description                       |Required|
 |---------|--------|--------|----------------------------------|--------|
@@ -865,7 +864,7 @@ Set global variable
 |--------|--------|--------|-------------------------------------------------------------|--------|
 |key     |string  |-       |Storage reference value                                      |✔       |
 |value   |any     |-       |Storage value or callback object                             |-       |
-|options |object  |-       |[Callback options](https://www.weepower.com/script#functions)|-       |
+|options |object  |-       |[Callback options](/docs/v3/script?id=#functions)            |-       |
 
 ### Simple
 ```js
@@ -1133,50 +1132,12 @@ Convert serialized string back into an object
 
 Extend target object with source object(s)
 
-|Variable|Type                                                             |Default |Description|Required|
-|--------|-----------------------------------------------------------------|--------|-----------|--------|
-|deep    |boolean, object|false|Extend nested properties else target object|													✔											|
-|target|object|-|Target/source object|													✔											|
-|source|object|-|Source object||
-|source|object|-|Additional objects...||
-
-
-VariableTypeDefaultDescriptionRequired
-deep
-
-boolean, object
-
-false
-
-Extend nested properties else target object
-
-													✔
-											
-target
-
-object
-
--
-
-Target/source object
-
-													✔
-											
-source
-
-object
-
--
-
-Source object
-
-source
-
-object
-
--
-
-Additional objects...
+|Variable|Type             Default |Description                                |Required|
+|--------|-----------------|--------|-------------------------------------------|--------|
+|deep    |boolean, object  |false   |Extend nested properties else target object|✔		 |
+|target  |object           |-       |Target/source object                       |✔		 |
+|source  |object           |-       |Source object                              |-       |
+|source  |object           |-       |Additional objects...                      |-       |
 
 ### Clone Object
 

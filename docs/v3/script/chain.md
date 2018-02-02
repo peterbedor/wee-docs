@@ -126,13 +126,13 @@ DOM traversal is made easy with chaining.
 
 ## Events
 
-- [$(sel).on(a, b, c)](https://www.weepower.com/script/events#on)
+- [$(sel).on(a, b, c)](/docs/v3/script/events?id=#on)
 
-- [$(sel).off(a, b)](https://www.weepower.com/script/events#off)
+- [$(sel).off(a, b)](/docs/v3/script/events?id=#off)
 
-- [$(sel).bound(event, fn)](https://www.weepower.com/script/events#bound)
+- [$(sel).bound(event, fn)](/docs/v3/script/events?id=#bound)
 
-- [$(sel).trigger(name)](https://www.weepower.com/script/events#trigger)
+- [$(sel).trigger(name)](/docs/v3/script/events?id=#trigger)
 
 In this example, the selector is the element to which the event is bound.
 
@@ -191,7 +191,7 @@ All the core and DOM methods prefixed with `$` are shortcut when chaining is ena
 
 ## View
 
-- [$(sel).render(data)](https://www.weepower.com/script/view#render)
+- [$(sel).render(data)](/docs/v3/script/view?id=#render)
 
 The view chain method updated the content of a DOM element given a data object.
 
