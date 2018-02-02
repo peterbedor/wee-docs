@@ -1,41 +1,35 @@
-# DOM # (.intro__title)
+# DOM 
 
 Wee makes modifying and extracting data from your markup easy with a robust set of DOM functions. We’ve only included what you need without the cruft. You can also chain your methods.
 
-## $addClass ## (#addclass .doc__title)
+## $addClass
 
 Add classes to each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|value|[function](https://www.weepower.com/script/#functions), string|-|Class name(s) to add or callback|													✔											|
+|Variable|Type                                                          |Default |Description                     |Required|
+|--------|--------------------------------------------------------------|--------|--------------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection                |✔	   |
+|value   |[function](https://www.weepower.com/script/#functions), string|-       |Class name(s) to add or callback|✔	   |
 
-### 
-Single
- ### (.doc__label .doc__code__label)
+### Single
 
-```
+```js
 Wee.$addClass('ref:element', 'modifier');
 ```
 
-### 
-Multiple
- ### (.doc__label .doc__code__label)
+### Multiple
 
 Separate multiple class names with spaces.
 
-```
+```js
 Wee.$addClass('ref:element', 'modifier modifier2');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and class value are injected into the callback. The scope of `this` is the element.
 
-```
+```js
 Wee.$addClass('ref:element', function(i, className) {
     // Add an indexed classreturn className + i;
 });
@@ -43,567 +37,543 @@ Wee.$addClass('ref:element', function(i, className) {
 
 Callbacks can also be in the format of 'controllerName:method'. The index argument is always 0-based.
 
-## $after ## (#after .doc__title)
+## $after
 
 Insert selection or markup after each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|source|[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|													✔											|
-|remove|boolean|false|Remove target after insertion||
+|Variable|Type                                                   |Default |Description                  |Required|
+|--------|-------------------------------------------------------|--------|-----------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection             |✔|
+|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|✔|
+|remove  |boolean                                                |false   |Remove target after insertion|-        |
 
-### 
-Selection
- ### (.doc__label .doc__code__label)
+### Selection
 
-```
+```js
 Wee.$after('ref:element', Wee.$('.js-element'));
 ```
 
-### 
-Markup
- ### (.doc__label .doc__code__label)
+### Markup
 
-```
+```js
 Wee.$after('ref:element', '<span>Injected notice</span>');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and HTML are injected into the callback. The scope of `this` is the element.
 
-```
-<divdata-name="John Smith"><h1data-ref="bioName">Name</h1></div>
+```html
+<div data-name="John Smith">
+	<h1 data-ref="bioName">Name</h1>
+</div>
 ```
 
-```
+```js
 Wee.$after('ref:bioName', function(i, html) {
     // Add the parent data-name as a paragraph after the matched elementreturn'<p>' + Wee.$data(Wee.$parent(this), 'name') + '</p>';
 });
 ```
 
-```
-<divdata-name="John Smith"><h1data-ref="bioName">Name</h1><p>John Smith</p></div>
+```html
+<div data-name="John Smith">
+	<h1 data-ref="bioName">Name</h1>
+	<p>John Smith</p>
+</div>
 ```
 
-## $append ## (#append .doc__title)
+## $append
 
 Append selection or markup after each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|source|[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string||Source selection, callback, or HTML string|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔	    |
+|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|✔|
 
-### 
-Selection
- ### (.doc__label .doc__code__label)
+### Selection
 
-```
+```js
 Wee.$append('ref:element', Wee.$('.js-element'));
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and HTML are injected into the callback. The scope of `this` is the element.
 
-```
-<h1data-ref="listHeading">Names</h1><ul><li>John Doe</li><li>Jane Doe</li></ul>
+```html
+<h1 data-ref="listHeading">Names</h1>
+<ul>
+	<li>John Doe</li>
+	<li>Jane Doe</li>
+</ul>
 ```
 
-```
+```js
 Wee.$append('ref:listHeading', function(i, html) {
     // Modify the heading to include the number of listed namesreturn' (' + Wee.$children(Wee.$next()).length + ')';
 });
 ```
 
-```
-<h1data-ref="listHeading">Names (2)</h1><ul><li>John Doe</li><li>Jane Doe</li></ul>
+```html
+<h1 data-ref="listHeading">Names (2)</h1>
+<ul>
+	<li>John Doe</li>
+	<li>Jane Doe</li>
+</ul>
 ```
 
-## $attr ## (#attr .doc__title)
+## $attr
 
 Get attribute of first matching selection or set attribute of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|a|string, object|-|Attribute to get or set or an object|													✔											|
-|b|[function](https://www.weepower.com/script/#functions), string|-|Value to assign to attribute||
+|Variable|Type                                                          |Default |Description                         |Required|
+|--------|--------------------------------------------------------------|--------|------------------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection                    |✔       |
+|a       |string, object                                                |-       |Attribute to get or set or an object|✔       |
+|b       |[function](https://www.weepower.com/script/#functions), string|-       |Value to assign to attribute        |-       |
 
-### 
-Get
- ### (.doc__label .doc__code__label)
+### Get
 
-```
+```js
 Wee.$attr('ref:element', 'href');
 ```
 
 "[https://www.weepower.com](https://www.weepower.com)"
 
-### 
-Single
- ### (.doc__label .doc__code__label)
+### Single
 
-```
+```js
 Wee.$attr('ref:element', 'href', 'https://www.weepower.com/start');
 ```
 
-### 
-Multiple
- ### (.doc__label .doc__code__label)
+### Multiple
 
-```
+```js
 Wee.$attr('ref:element', {
     href: 'https://developer.mozilla.org',
     target: '_blank'
 });
 ```
 
-## $before ## (#before .doc__title)
+## $before
 
 Insert selection or markup before each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|source|[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback or HTML string|													✔											|
-|remove|boolean|false|Remove target after insertion||
+|Variable|Type                                                   |Default |Description                 |Required|
+|--------|-------------------------------------------------------|--------|----------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback or HTML string|✔|
+|remove  |boolean                                                |false   |Remove target after insertion|-      |
 
-### 
-Selection
- ### (.doc__label .doc__code__label)
+### Selection
 
-```
+```js
 Wee.$before('ref:element', Wee.$('.js-element'));
 ```
 
-### 
-Markup
- ### (.doc__label .doc__code__label)
+### Markup
 
-```
+```js
 Wee.$before('ref:element', '<span>Injected notice</span>');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
-```
+```js
 Wee.$before('ref:element', function(i, html) {
     // Callback logic
 });
 ```
 
-## $children ## (#children .doc__title)
+## $children
 
 Get unique direct children of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|parent|[selection](https://www.weepower.com/script/#selection)|-|Parent selection|													✔											|
-|filter|[selection](https://www.weepower.com/script/#selection)|-|Filter selection||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|---------|
+|parent  |[selection](https://www.weepower.com/script/#selection)|-       |Parent selection|✔        |
+|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-        |
 
-### 
-All Children
- ### (.doc__label .doc__code__label)
+### All Children
 
 Without a filter all direct children will be returned.
 
-```
+```js
 Wee.$children('ref:element');
 ```
 
-### 
-Filtered
- ### (.doc__label .doc__code__label)
+### Filtered
 
 With a filter, only matching children will be returned.
 
-```
+```js
 Wee.$children('ref:element', 'li');
 ```
 
 The response excludes text and comment nodes.
 
-## $clone ## (#clone .doc__title)
+## $clone
 
 Clone each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default|Description      |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔	    |
 
-```
+```js
 Wee.$clone('ref:element');
 ```
 
-## $closest ## (#closest .doc__title)
+## $closest
 
 Get unique closest ancestors of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|filter|[selection](https://www.weepower.com/script/#selection)|-|Filter selection|													✔											|
-|context|[selection](https://www.weepower.com/script/#selection)|-|Context selection||
+|Variable|Type                                                   |Default |Description      |Required|
+|--------|-------------------------------------------------------|--------|-----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection |✔       |
+|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection |✔       |
+|context |[selection](https://www.weepower.com/script/#selection)|-       |Context selection|-       |
 
-```
-<divclass="nav"><aclass="link--account">Your Account</a></div><divclass="nav"><aclass="link--about">About Us</a></div>
+```html
+<div class="nav">
+	<a class="link--account">Your Account</a>
+</div>
+<div class="nav">
+	<a class="link--about">About Us</a>
+</div>
 ```
 
-```
+```js
 Wee.$closest('.link--about', '.nav');
 ```
 
-```
-<divclass="nav"><aclass="link--about">About Us</a></div>
+```html
+<div class="nav">
+	<a class="link--about">About Us</a>
+</div>
 ```
 
 This method traverses up the DOM for the closest match. It doesn't match descendants.
 
-## $contains ## (#contains .doc__title)
+## $contain
 
 Determine if any matching parent selection contains descendant selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|parent|[selection](https://www.weepower.com/script/#selection)|-|Parent selection|													✔											|
-|descendant|[selection](https://www.weepower.com/script/#selection)|-|Descendant selection|													✔											|
+|Variable  |Type                                                   |Default |Description         |Required|
+|----------|-------------------------------------------------------|--------|--------------------|--------|
+|parent    |[selection](https://www.weepower.com/script/#selection)|-       |Parent selection    |✔       |
+|descendant|[selection](https://www.weepower.com/script/#selection)|-       |Descendant selection|✔       |
 
-```
+```js
 Wee.$contains('ref:element', '.descendant');
 ```
 
-```
+```js
 true
 ```
 
-## $contents ## (#contents .doc__title)
+## $contents
 
 Get unique content of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|parent|[selection](https://www.weepower.com/script/#selection)|-|Parent selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|parent  |[selection](https://www.weepower.com/script/#selection)|-       |Parent selection|✔       |
 
-```
+```js
 Wee.$contents('ref:element');
 ```
 
 The response includes text and comment nodes.
 
-## $css ## (#css .doc__title)
+## $css
 
 Get CSS value of first matching selection or set value of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|a|string, object|-|Property to get or set or an object|													✔											|
-|b|string|-|Value to assign to property||
+|Variable|Type                                                   |Default |Description                        |Required|
+|--------|-------------------------------------------------------|--------|-----------------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection                   |✔       |
+|a       |string, object                                         |-       |Property to get or set or an object|✔       |
+|b       |string                                                 |-       |Value to assign to property        |-       |
 
-### 
-Get Value
- ### (.doc__label .doc__code__label)
+### Get Value
 
-```
+```js
 Wee.$css('ref:element', 'marginTop');
 ```
 
-```
+```js
 "0px"
 ```
 
-### 
-Set Single Value
- ### (.doc__label .doc__code__label)
+### Set Single Value
 
-```
+```js
 Wee.$css('ref:element', 'marginTop', '5px');
 ```
 
-### 
-Set Multiple Values
- ### (.doc__label .doc__code__label)
+### Set Multiple Values
 
-```
+```js
 Wee.$css('ref:element', {
     marginTop: '5px',
     color: 'red'
 });
 ```
 
-## $data ## (#data .doc__title)
+## $data
 
 Get data of first matching selection or set data of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|a|string, object|-|Data attribute to get or set or an object|													✔											|
-|b|string|-|Value to assign to data attribute||
+|Variable|Type                                                   |Default |Description                              |Required|
+|--------|-------------------------------------------------------|--------|-----------------------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection                         |✔       |
+|a       |string, object                                         |-       |Data attribute to get or set or an object|✔       |
+|b       |string                                                 |-       |Value to assign to data attribute        |-       |
 
-### 
-Get All
- ### (.doc__label .doc__code__label)
+### Get All
 
-```
-<divdata-ref="element"data-id="150"></div>
+```html
+<div data-ref="element" data-id="150"></div>
 ```
 
-```
+```js
 Wee.$data('ref:element');
 ```
 
-```
+```js
 {
     ref: "element",
     id: 150
 }
 ```
 
-### 
-Get Single
- ### (.doc__label .doc__code__label)
+### Get Single
 
-```
-<divdata-ref="element"data-id="150"></div>
+```html
+<div data-ref="element" data-id="150"></div>
 ```
 
-```
+```js
 Wee.$data('ref:element', 'id');
 ```
 
-```
+```js
 150
 ```
 
-### 
-Set Single
- ### (.doc__label .doc__code__label)
+### Set Single
 
-```
+```js
 Wee.$data('ref:element', 'id', '250');;
 ```
 
-### 
-Set Multiple
- ### (.doc__label .doc__code__label)
+### Set Multiple
 
-```
+```js
 Wee.$data('ref:element', {
     id: '350',
     active: 'true'
 });
 ```
 
-## $empty ## (#empty .doc__title)
+## $empty
 
 Remove child nodes from each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔	    |
 
-```
-<divdata-ref="bio"><h1>John Smith</h1><p>Lorem ipsum dolor.</p></div>
+```html
+<div data-ref="bio">
+	<h1>John Smith</h1>
+	<p>Lorem ipsum dolor.</p>
+</div>
 ```
 
-```
+```js
 Wee.$empty('ref:bio');
 ```
 
-```
-<divdata-ref="bio"></div>
+```html
+<div data-ref="bio"></div>
 ```
 
-## $eq ## (#eq .doc__title)
+## $eq
 
 Get indexed node of matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|index|number|-|Element index|													✔											|
-|context|[selection](https://www.weepower.com/script/#selection)|-|Context selection||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|index   |number                                                 |-       |Element index   |✔		|
+|context |[selection](https://www.weepower.com/script/#selection)|-|Context selection||
 
-```
-<ulclass="js-element"><li>List item 1</li><li>List item 2</li><li>List item 3</li></ul>
+```html
+<ul class="js-element">
+	<li>List item 1</li>
+	<li>List item 2</li>
+	<li>List item 3</li>
+</ul>
 ```
 
-```
+```js
 Wee.$eq('.js-element li', 1);
 ```
 
-```
+```html
 <li>List item 2</li>
 ```
 
-### 
-Negative Index
- ### (.doc__label .doc__code__label)
+### Negative Index
 
-```
+```js
 Wee.$eq('.js-element li', -1);
 ```
 
-```
+```html
 <li>List item 3</li>
 ```
 
-## $filter ## (#filter .doc__title)
+## $filter
 
 Return a filtered subset of elements from a matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|filter|[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|													✔											|
-|options|object|-|[Callback options](https://www.weepower.com/script/#functions)||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|filter  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|✔	|
+|options |object                                                 |-       |[Callback options](https://www.weepower.com/script/#functions)|-|
 
-### 
-Selection
- ### (.doc__label .doc__code__label)
+### Selection
 
-```
+```js
 Wee.$filter('ref:element', '.filter');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and element are injected into the callback. The scope of `this` is the element.
 
-```
-<ulclass="people"><li>John Doe</li><li>John Smith</li><li>Jane Doe</li><li>Jane Smith</li></ul>
+```html
+<ul class="people">
+	<li>John Doe</li>
+	<li>John Smith</li>
+	<li>Jane Doe</li>
+	<li>Jane Smith</li>
+</ul>
 ```
 
-```
+```js
 Wee.$filter('.people li', function(i, el) {
     // Return elements containing 'Doe'return Wee.$text(el).indexOf('Doe') !== -1;
 });
 ```
 
-```
+```html
 [<li>John Doe</li>, <li>Jane Doe</li>]
 ```
 
-## $find ## (#find .doc__title)
+## $find
 
 Get unique filtered descendants from each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|parent|[selection](https://www.weepower.com/script/#selection)|-|Parent selection|													✔											|
-|filter|[selection](https://www.weepower.com/script/#selection)|-|Filter selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|parent  |[selection](https://www.weepower.com/script/#selection)|-       |Parent selection|✔       |
+|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|✔       |
 
-```
+```js
 Wee.$find('table', 'tr');
 ```
 
-## $first ## (#first .doc__title)
+## $first
 
 Get the first element of a matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|context|[selection](https://www.weepower.com/script/#selection)|-|Selection context||
+|Variable|Type                                                   |Default |Description      |Required|
+|--------|-------------------------------------------------------|--------|-----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection |✔       |
+|context |[selection](https://www.weepower.com/script/#selection)|-       |Selection context|-       |
 
 Works the same as [Wee.$()](https://www.weepower.com/script/dom#core) but only returns the first result from the result set.
 
-```
+```js
 var $first = Wee.$first('ref:element');
 ```
 
-## $hasClass ## (#hasclass .doc__title)
+## $hasClass
 
 Determine if the matching selection has a class
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|className|string|-|Specific class name|													✔											|
+|Variable |Type                                                   |Default |Description        |Required|
+|---------|-------------------------------------------------------|--------|-------------------|--------|
+|target   |[selection](https://www.weepower.com/script/#selection)|-       |Target selection   |✔       |
+|className|string                                                 |-       |Specific class name|✔       |
 
-### 
-Single
- ### (.doc__label .doc__code__label)
+### Single
 
-```
-<divclass="hello"data-ref="element"></div>
+```html
+<div class="hello" data-ref="element"></div>
 ```
 
-```
+```js
 $('ref:element').hasClass('hello');
 $('ref:element').hasClass('donuts');
 ```
 
-```
+```js
 truefalse
 ```
 
-## $height ## (#height .doc__title)
+## $height
 
 Get or set the height of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|value|[function](https://www.weepower.com/script/#functions), string, number, boolean|-|Height to set, callback, or true to get outer height|													✔											|
+|Variable|Type                                                                           |Default |Description     |Required|
+|--------|-------------------------------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)                        |-       |Target selection|✔       |
+|value   |[function](https://www.weepower.com/script/#functions), string, number, boolean|-       |Height to set, callback, or true to get outer height|✔|
 
-### 
-Get
- ### (.doc__label .doc__code__label)
+### Get
 
-```
+```js
 Wee.$height('ref:element');
 ```
 
-```
+```js
 100
 ```
 
-### 
-Outer Height
- ### (.doc__label .doc__code__label)
+### Outer Height
 
-```
+```js
 Wee.$height('ref:element', true);
 ```
 
-```
+```js
 120
 ```
 
 The value returned is a unitless pixel value.
 
-### 
-Set
- ### (.doc__label .doc__code__label)
+### Set
 
-```
+```js
 Wee.$height('ref:element', '10rem');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and height are injected into the callback. The scope of `this` is the element.
 
-```
-<divdata-ref="example"style="height: 100px;"></div>
+```html
+<div data-ref="example" style="height: 100px;"></div>
 ```
 
-```
+```js
 Wee.$height('ref:example', function(i, height) {
     // Increase the height of the element by 50pxreturn (height += 50) + 'px';
 });
@@ -611,156 +581,157 @@ Wee.$height('ref:example', function(i, height) {
 
 If no unit is provided pixels will be set.
 
-## $hide ## (#hide .doc__title)
+## $hide
 
 Hide each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
 
 Hide works by adding the `js-hide` class which applies `display: none !important;`
 
-```
+```js
 Wee.$hide('ref:element');
 ```
 
-## $html ## (#html .doc__title)
+## $html
 
 Get inner HTML of first selection or set each matching selection's HTML
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|value|[function](https://www.weepower.com/script/#functions), string|-|HTML to set or callback|													✔											|
+|Variable|Type                                                          |Default |Description            |Required|
+|--------|--------------------------------------------------------------|--------|-----------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection       |✔       |
+|value   |[function](https://www.weepower.com/script/#functions), string|-       |HTML to set or callback|✔       |
 
-```
-<divdata-ref="element"><h1>Heading</h1></div>
+```html
+<div data-ref="element">
+	<h1>Heading</h1>
+</div>
 ```
 
-### 
-Get
- ### (.doc__label .doc__code__label)
+### Get
 
-```
+```js
 Wee.$html('ref:element');
 ```
 
-```
+```html
 "<h1>Heading</h1>"
 ```
 
-### 
-Set
- ### (.doc__label .doc__code__label)
+### Set
 
-```
+```js
 Wee.$html('ref:element', '<h2>New Heading</h2>');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and HTML are injected into the callback. The scope of `this` is the element.
 
-```
+```js
 Wee.$html('.js-element', function(el, i, html) {
     // Return uppercase HTMLreturn html.toUpperCase();
 });
 ```
 
-## $index ## (#index .doc__title)
+## $index
 
 Get the zero-based index of a matching selection relative to it's siblings
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
 
-```
-<ul><li></li><li></li><liclass="js-last"></li></ul>
+```html
+<ul>
+	<li></li>
+	<li></li>
+	<li class="js-last"></li>
+</ul>
 ```
 
-```
+```js
 Wee.$index('.js-last');
 ```
 
-```
+```js
 2
 ```
 
-## $insertAfter ## (#insertafter .doc__title)
+## $insertAfter
 
 Insert each matching source selection element after each matching target selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|source|[selection](https://www.weepower.com/script/#selection)|-|Source selection|													✔											|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|source  |[selection](https://www.weepower.com/script/#selection)|-       |Source selection|✔       |
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
 
-```
+```js
 Wee.$insertAfter('ref:element', '.js-element');
 ```
 
-## $insertBefore ## (#insertbefore .doc__title)
+## $insertBefore
 
 Insert each matching source selection element before each matching target selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|source|[selection](https://www.weepower.com/script/#selection)|-|Source selection|													✔											|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|source  |[selection](https://www.weepower.com/script/#selection)|-       |Source selection|✔       |
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
 
-```
+```js
 Wee.$insertBefore('ref:element', '.js-element');
 ```
 
-## $is ## (#is .doc__title)
+## $is
 
 Determine if at least one matching selection matches a specified criteria
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|filter|[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|													✔											|
-|options|object|-|[Callback options](https://www.weepower.com/script/#functions)||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|filter  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|✔|
+|options |object                                                 |-       |[Callback options](https://www.weepower.com/script/#functions)|-|
 
-### 
-Selection
- ### (.doc__label .doc__code__label)
+### Selection
 
-```
-<divclass="js-element"></div>
+```html
+<div class="js-element"></div>
 ```
 
-```
+```js
 Wee.$is('.js-element', 'div');
 ```
 
-```
+```js
 true
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
-```
-<ulclass="names"><li>John Doe</li><lidata-hidden="true">Jane Doe</li><li>John Smith</li><li>Jane Smith</li></ul>
+```html
+<ul class="names">
+	<li>John Doe</li>
+	<li data-hidden="true">Jane Doe</li>
+	<li>John Smith</li>
+	<li>Jane Smith</li>
+</ul>
 ```
 
-```
+```js
 Wee.$is('.names li', function(i, el) {
     // Check if data-hidden is set to truereturn Wee.$data(el, 'hidden') === 'true';
 });
 ```
 
-```
+```js
 true
 ```
 
-## $last ## (#last .doc__title)
+## $last
 
 Get the last element of a matching selection
 
