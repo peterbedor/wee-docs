@@ -1,33 +1,28 @@
-# Animate # (.intro__title)
+# Animate
 
 Smoothly transition attribute or property values
 
 While CSS animation is typically preferred for supported transitions, sometimes JavaScript is necessary for tweening certain attributes or properties. Wee gives you the bare minimum to make that happen.
 
-## addEasing ## (#addeasing .doc__title)
+## addEasing
 
 Add additional easing function(s)
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|a|object, string|-|Multiple ease object or easing key|													✔											|
-|b|function|-|Easing function||
+|Variable|Type          |Default |Description                       |Required|
+|--------|--------------|--------|----------------------------------|--------|
+|a       |object, string|-       |Multiple ease object or easing key|✔       |
+|b       |function      |-       |Easing function                   |-       |
 
-### 
-Single
- ### (.doc__label .doc__code__label)
+### Single
 
-```
+```js
 Wee.animate.addEasing('split', function(t) {
     return t / 2;
 });
 ```
+### Multiple
 
-### 
-Multiple
- ### (.doc__label .doc__code__label)
-
-```
+```js
 Wee.animate.addEasing({
     split: function(t) {
         return t / 2;
@@ -38,39 +33,35 @@ Wee.animate.addEasing({
 });
 ```
 
-## Tween ## (#tween .doc__title)
+## Tween
 
 Transition an attribute or property value
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](/script#selection)|-|Target selection|													✔											|
-|props|object|-|Key/value object of attributes or properties|													✔											|
-|options|object|-|Object parameters below||
+|Variable|Type                          |Default |Description                                 |Required|
+|--------|------------------------------|--------|--------------------------------------------|--------|
+|target  |[selection](/script#selection)|-       |Target selection                            |	✔      |
+|props   |object                        |-       |Key/value object of attributes or properties| ✔	   |
+|options |object                        |-       |Object parameters below                     |-       |
 
-### Options Object ### (.doc__label .doc__variables__label)
+### Options Object
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|complete|[function](/script#functions)|-|Callback function||
-|duration|number|400|Transition duration in milliseconds||
-|ease|string|'ease'|ease, linear, or name of registered easing||
+|Variable|Type                         |Default |Description                               |Required|
+|--------|-----------------------------|--------|------------------------------------------|--------|
+|complete|[function](/script#functions)|-       |Callback function                         |-       |
+|duration|number                       |400     |Transition duration in milliseconds       |        |
+|ease    |string                       |'ease'  |ease, linear, or name of registered easing|        | 
 
-### 
-Simple
- ### (.doc__label .doc__code__label)
+### Simple
 
-```
+```js
 Wee.animate.tween('ref:element', {
     height: 200
 });
 ```
 
-### 
-Advanced
- ### (.doc__label .doc__code__label)
+### Advanced
 
-```
+```js
 Wee.animate.tween('ref:element', {
     height: 200,
     marginTop: 100
