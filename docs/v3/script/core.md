@@ -479,7 +479,7 @@ Determine if the current environment is SSL encrypted
 Compare two values for strict equality
 
 | Variable  | Type   | Default  | Description       | Required  |
-| --------- |:------:| --------:| -----------------:| ---------:|
+| --------- | ------:| --------:| -----------------:| ---------:|
 | a	        | object | -        | original value    | ✔         |
 | b         | object | -        | compared value    | ✔         |
 								
@@ -502,41 +502,16 @@ Compare two values for strict equality
 
 Execute specified function or controller method
 
-VariableTypeDefaultDescriptionRequired
-fn
+| Variable | Type                                |Default | Description          | Required |
+| -------- |-------------------------------------|--------|--------------------- |----------|
+|fn        |[function](/script#functions), array | -      |Functions to execute  | ✔	    |
+|options   | object                              | -      |Function options below| -        |
 
-[function](/script#functions), array
+|Variable  |Type                                 |Default |Description           |Required  |
+|----------|-------------------------------------|--------|----------------------|----------|
+|args      |array                                |-       |Function arguments    |-         |
+|scope     |object                               |-       |Function scope        |-         |
 
--
-
-Functions to execute
-
-													✔
-											
-options
-
-object
-
--
-
-Function options below
-
-VariableTypeDefaultDescriptionRequired
-args
-
-array
-
--
-
-Function arguments
-
-scope
-
-object
-
--
-
-Function scope
 ```js
     Wee.$exec('controllerName:methodName');
 ```
@@ -567,38 +542,12 @@ Note: This method is mostly intended for external use although it can be used an
 
 Get global variable
 
-VariableTypeDefaultDescriptionRequired
-key
-
-string
-
--
-
-Storage reference
-
-fallback
-
-any
-
-null
-
-Default value if not set
-
-set
-
-boolean
-
-false
-
-Set default permanently
-
-options
-
-object
-
--
-
-[Callback options](/script#functions)
+|Variable|Type    |Default |Description                          |Required|
+|--------|--------|--------|-------------------------------------|--------|
+|key     |string  |-       |Storage reference                    |-       |
+|fallback|any     |null    |Default value if not set             |-       |
+|set     |boolean |false   |Set default permanently              |-       |
+|options |object  |-       |[Callback options](/script#functions)|-       |
 
 ```js
     Wee.$get('key');
@@ -629,24 +578,10 @@ object
 
 Check if storage criteria is set
 
-VariableTypeDefaultDescriptionRequired
-key
-
-string
-
--
-
-Storage reference
-
-													✔
-											
-value
-
-any
-
--
-
-Storage key or value
+|Variable|Type    |Default |Description         |Required|
+|--------|--------|--------|--------------------|--------|
+|key     |string  |-       |Storage reference   |✔       |
+|value   |any     |-       |Storage key or value|-       |
 
 ### Key
 
@@ -675,16 +610,9 @@ Storage key or value
 
 Determine if value is an array
 
-VariableTypeDefaultDescriptionRequired
-value
-
-any
-
--
-
-Value to evaluate
-
-													✔
+|Variable|Type    |Default |Description      |Required|
+|--------|--------|--------|-----------------|--------|
+|value   |any     |-       |Value to evaluate| ✔      |
 											
 ```js
     Wee.$isArray([
@@ -703,43 +631,31 @@ Value to evaluate
 
 Determine if value is a function
 
-VariableTypeDefaultDescriptionRequired
-value
 
-any
+|Variable|Type    |Default |Description      |Required|
+|--------|--------|--------|-----------------|--------|
+|value   |any     |-       |Value to evaluate| ✔      |
 
--
-
-Value to evaluate
-
-													✔
-											
-
+```js
     Wee.$isFunction({});
     Wee.$isFunction('string');
     Wee.$isFunction('controller:fn');
     Wee.$isFunction(function() {});
-
+```
+```js
     false
     false
     true
     true
-
+```
 ## $isObject
 
 Determine if value is an object
 
-VariableTypeDefaultDescriptionRequired
-value
-
-any
-
--
-
-Value to evaluate
-
-													✔
-											
+|Variable|Type    |Default |Description      |Required|
+|--------|--------|--------|-----------------|--------|
+|value   |any     |-       |Value to evaluate|✔		  |
+										
 ```js
     Wee.$isObject({});
     Wee.$isObject('string');
@@ -753,16 +669,9 @@ Value to evaluate
 
 Determine if value is a string
 
-VariableTypeDefaultDescriptionRequired
-value
-
-any
-
--
-
-Value to evaluate
-
-													✔
+|Variable|Type    |Default |Description      |Required|
+|--------|--------|--------|-----------------|--------|
+|value   |any     |-       |Value to evaluate| ✔      |
 											
 ```js
     Wee.$isString({});
@@ -779,51 +688,16 @@ Translate items in an array or selection to new array
 
 The callback receives the current element as well as the index.
 
-VariableTypeDefaultDescriptionRequired
-target
+|Variable|Type                                 |Default |Description           |Required|
+|--------|-------------------------------------|--------|----------------------|--------|
+|target  |array, [selection](/script#selection)|-       |Array or selection    | ✔      |
+|fn      |[function](/script#functions)        |-       |Callback function     | ✔      |
+|options |object                               |-       |Callback options below| -      |
 
-array, [selection](/script#selection)
-
--
-
-Array or selection
-
-													✔
-											
-fn
-
-[function](/script#functions)
-
--
-
-Callback function
-
-													✔
-											
-options
-
-object
-
--
-
-Callback options below
-
-VariableTypeDefaultDescriptionRequired
-args
-
-array
-
--
-
-Function arguments
-
-scope
-
-object
-
--
-
-Function scope
+|Variable|Type    |Default|Description       |Required|
+|--------|--------|-------|------------------|--------|
+|args    |array   |-      |Function arguments|-       |
+|scope   |object  |-      |Function scope    |-       |
 
 ### Array
 ```js
@@ -851,22 +725,10 @@ Function scope
 
 Extend object into global storage
 
-VariableTypeDefaultDescriptionRequired
-key
-
-string
-
--
-
-Storage reference or merge object
-
-													✔
-											
-obj
-
-any
-
--
+|Variable|Type    |Default |Description                      |Required|
+|--------|--------|--------|---------------------------------|--------|
+|key     |string  |-       |Storage reference or merge object|✔       |
+|obj     |any     |-       |Storage value or prepend value   |-       |
 
 Storage value or prepend value
 ```js
