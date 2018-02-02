@@ -751,67 +751,21 @@ Storage value or prepend value
 
 Attach callback to data storage change
 
-VariableTypeDefaultDescriptionRequired
-key
+|Variable|Type                         |Default |Description              |Required|
+|--------|-----------------------------|--------|-------------------------|--------|
+|key     |string                       |-       |Storage reference        |✔       |
+|fn      |[function](/script#functions)|-       |Trigger method           |✔       |
+|options |object                       |-       |Observation options below|-       |
 
-string
+### Options Object 
+### (.doc__label .doc__variables__label)
 
--
-
-Storage reference
-
-													✔
-											
-fn
-
-[function](/script#functions)
-
--
-
-Trigger method
-
-													✔
-											
-options
-
-object
-
--
-
-Observation options below
-
-### Options Object
-
-VariableTypeDefaultDescriptionRequired
-diff
-
-boolean
-
-false
-
-Include diff in callback
-
-once
-
-boolean
-
-false
-
-Execute only once
-
-recursive
-
-boolean
-
-false
-
-Look for nested value changes
-
-value
-
-*
-
-Specific value to trigger callback
+|Variable |Type    |Default |Description                       |Required|
+|---------|--------|--------|----------------------------------|--------|
+|diff     |boolean |false   |Include diff in callback          | -      |
+|once     |boolean |false   |Execute only once                 | -      |
+|recursive|boolean |false   |Look for nested value changes     | -      |
+|value    |*       |        |Specific value to trigger callback| -      |
 
 ### Basic
 ```js
@@ -848,17 +802,10 @@ Specific value to trigger callback
 
 Create document fragment from an HTML string
 
-VariableTypeDefaultDescriptionRequired
-html
+|Variable|Type    |Default |Description    |Required|
+|--------|--------|--------|---------------|--------|
+|html    |string  |-       |HTML to convert| ✔      |
 
-string
-
--
-
-HTML to convert
-
-													✔
-											
 ```js
     var el = Wee.$parseHTML('<span class="testing">Testing</span>');
     Wee.$hasClass(el.childNodes, 'testing');
@@ -868,32 +815,12 @@ HTML to convert
 
 Push value into global array
 
-VariableTypeDefaultDescriptionRequired
-key
+|Variable|Type    |Default |Description                   |Required|
+|--------|--------|--------|------------------------------|--------|
+|key     |string  |-       |Storage reference or value    |✔       |
+|value   |any     |-       |Storage value or prepend value|-       |
+|prepend |false   |-       |Prepend value to storage      |-       |
 
-string
-
--
-
-Storage reference or value
-
-													✔
-											
-value
-
-any
-
--
-
-Storage value or prepend value
-
-prepend
-
-false
-
--
-
-Prepend value to storage
 ```js
     Wee.$push('key', 'Success');
     Wee.$push('key', 'Success 2');
@@ -910,16 +837,10 @@ Prepend value to storage
 
 Serialize
 
-VariableTypeDefaultDescriptionRequired
-obj
+|Variable|Type    |Default |Description        |Required|
+|--------|--------|--------|-------------------|--------|
+|obj     |object  |-       |Object to serialize|✔       |
 
-object
-
--
-
-Object to serialize
-
-													✔
 ```js										
     Wee.$serialize({
         key1: 123,
@@ -940,32 +861,11 @@ Only the first level of the object is serialized.
 
 Set global variable
 
-VariableTypeDefaultDescriptionRequired
-key
-
-string
-
--
-
-Storage reference value
-
-													✔
-											
-value
-
-any
-
--
-
-Storage value or callback object
-
-options
-
-object
-
--
-
-[Callback options](https://www.weepower.com/script#functions)
+|Variable|Type    |Default |Description                                                  |Required|
+|--------|--------|--------|-------------------------------------------------------------|--------|
+|key     |string  |-       |Storage reference value                                      |✔       |
+|value   |any     |-       |Storage value or callback object                             |-       |
+|options |object  |-       |[Callback options](https://www.weepower.com/script#functions)|-       |
 
 ### Simple
 ```js
@@ -997,14 +897,9 @@ Add ref elements to datastore
 
 Available data-ref values are pushed into the global storage for later retrieval. This method can be called after dynamic content is injected to ensure new refs are available for selection.
 
-VariableTypeDefaultDescriptionRequired
-context
-
-[selection](/script#selection)
-
-document
-
-Context selection
+|Variable|Type                          |Default |Description      |Required|
+|--------|------------------------------|--------|-----------------|--------|
+|context |[selection](/script#selection)|document|Context selection|-       |
 
 ```html
     <div data-ref="element"></div>
@@ -1126,16 +1021,10 @@ This function is called by default on page load.
 
 Cast value to array if it isn't one
 
-VariableTypeDefaultDescriptionRequired
-val
 
-any
-
--
-
-Value to convert to array
-
-													✔
+|Variable|Type    |Default |Description              |Required|
+|--------|--------|--------|-------------------------|--------|
+|val     |any     |-       |Value to convert to array|✔		  |
 											
 ```js
     Wee.$toArray(['test']);
@@ -1151,16 +1040,9 @@ Value to convert to array
 
 Execute matching observed callbacks
 
-VariableTypeDefaultDescriptionRequired
-key
-
-string
-
--
-
-Storage reference
-
-													✔
+|Variable|Type    |Default |Description      |Required|
+|--------|--------|--------|-----------------|--------|
+|key     |string  |-       |Storage reference|✔       |
 											
 ```js
     Wee.$observe('key', function() {
@@ -1177,16 +1059,9 @@ Storage reference
 
 Determine the JavaScript type of an object
 
-VariableTypeDefaultDescriptionRequired
-obj
-
-any
-
--
-
-Object to evaluate
-
-													✔
+|Variable|Type    |Default |Description       |Required|
+|--------|--------|--------|------------------|--------|
+|obj     |any     |-       |Object to evaluate|✔       |
 											
 ```js
     Wee.$type([
@@ -1205,16 +1080,9 @@ Object to evaluate
 
 Create new array with only unique values from source array
 
-VariableTypeDefaultDescriptionRequired
-array
-
-array
-
--
-
-Value array
-
-													✔
+|Variable|Type    |Default |Description|Required|
+|--------|--------|--------|-----------|--------|
+|array   |array   |-       |Value array|✔       |
 											
 ```js
     Wee.$unique([1, 1, 2, 3, 3, 3, 4]);
@@ -1228,14 +1096,9 @@ Value array
 
 Remove callback from data storage change
 
-VariableTypeDefaultDescriptionRequired
-key
-
-string
-
--
-
-Storage reference
+|Variable|Type    |Default |Description      |Required|
+|--------|--------|--------|-----------------|--------|
+|key     |string  |-       |Storage reference|-       |
 
 ### Remove All
 ```js
@@ -1249,16 +1112,9 @@ Storage reference
 
 Convert serialized string back into an object
 
-VariableTypeDefaultDescriptionRequired
-str
-
-string
-
--
-
-Serialized string
-
-													✔
+|Variable|Type    |Default |Description      |Required|
+|--------|--------|--------|-----------------|--------|
+|str     |string  |-       |Serialized string| ✔      |
 											
 ```js
     Wee.$unserialize('key1=123&key2[]=value+1&key2[]=value+2');
@@ -1276,6 +1132,14 @@ Serialized string
 ## $extend
 
 Extend target object with source object(s)
+
+|Variable|Type                                                             |Default |Description|Required|
+|--------|-----------------------------------------------------------------|--------|-----------|--------|
+|deep    |boolean, object|false|Extend nested properties else target object|													✔											|
+|target|object|-|Target/source object|													✔											|
+|source|object|-|Source object||
+|source|object|-|Additional objects...||
+
 
 VariableTypeDefaultDescriptionRequired
 deep
