@@ -27,4 +27,4 @@
     - [Routes](/docs/v3/routes)
     - [Screen](/docs/v3/screen)
 	- [View](/docs/v3/view)
-	- [Polyfills](/docs/v3/polyfills)f
+	- [Polyfills](/docs/v3/polyfills)
