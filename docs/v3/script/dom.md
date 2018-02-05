@@ -6,10 +6,10 @@ Wee makes modifying and extracting data from your markup easy with a robust set 
 
 Add classes to each matching selection
 
-|Variable|Type                                                          |Default |Description                     |Required|
-|--------|--------------------------------------------------------------|--------|--------------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection                |✔	   |
-|value   |[function](https://www.weepower.com/script/#functions), string|-       |Class name(s) to add or callback|✔	   |
+|Variable|Type                                             |Default|Description                     |Required|
+|--------|-------------------------------------------------|-------|--------------------------------|--------|
+|target  |[selection](/docs/v3/script?id=#selection)       |-      |Target selection                |✔	     |
+|value   |[function](/docs/v3/script?id=#functions), string|-      |Class name(s) to add or callback|✔	     |
 
 ### Single
 
@@ -43,8 +43,8 @@ Insert selection or markup after each matching selection
 
 |Variable|Type                                                   |Default |Description                  |Required|
 |--------|-------------------------------------------------------|--------|-----------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection             |✔|
-|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|✔|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection             |✔|
+|source  |[function](/docs/v3/script?id=#functions), [selection](/docs/v3/script?id=#selection), string |-|Source selection, callback, or HTML string|✔|
 |remove  |boolean                                                |false   |Remove target after insertion|-        |
 
 ### Selection
@@ -88,8 +88,8 @@ Append selection or markup after each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔	    |
-|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|✔|
+|target  |[selection](/docs/v3/script?id=#selection)|-       |Target selection|✔	    |
+|source  |[function](/docs/v3/script?id=#functions), [selection](/docs/v3/script?id=#selection), string|-|Source selection, callback, or HTML string|✔|
 
 ### Selection
 
@@ -129,9 +129,9 @@ Get attribute of first matching selection or set attribute of each matching sele
 
 |Variable|Type                                                          |Default |Description                         |Required|
 |--------|--------------------------------------------------------------|--------|------------------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection                    |✔       |
+|target  |[selection](/docs/v3/script?id=#selection)       |-       |Target selection                    |✔       |
 |a       |string, object                                                |-       |Attribute to get or set or an object|✔       |
-|b       |[function](https://www.weepower.com/script/#functions), string|-       |Value to assign to attribute        |-       |
+|b       |[function](/docs/v3/script?id=#functions), string|-       |Value to assign to attribute        |-       |
 
 ### Get
 
@@ -162,8 +162,8 @@ Insert selection or markup before each matching selection
 
 |Variable|Type                                                   |Default |Description                 |Required|
 |--------|-------------------------------------------------------|--------|----------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
-|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback or HTML string|✔|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection            |✔       |
+|source  |[function](/docs/v3/script?id=#functions), [selection](/docs/v3/script?id=#selection), string|-|Source selection, callback or HTML string|✔|
 |remove  |boolean                                                |false   |Remove target after insertion|-      |
 
 ### Selection
@@ -192,8 +192,8 @@ Get unique direct children of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|---------|
-|parent  |[selection](https://www.weepower.com/script/#selection)|-       |Parent selection|✔        |
-|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-        |
+|parent  |[selection](/docs/v3/script?id=selection)              |-       |Parent selection|✔        |
+|filter  |[selection](/docs/v3/script?id=selection)              |-       |Filter selection|-        |
 
 ### All Children
 
@@ -219,7 +219,7 @@ Clone each matching selection
 
 |Variable|Type                                                   |Default|Description      |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔	    |
+|target  |[selection](/docs/v3/script?id=selection)              |-       |Target selection|✔	    |
 
 ```js
 Wee.$clone('ref:element');
@@ -231,9 +231,9 @@ Get unique closest ancestors of each matching selection
 
 |Variable|Type                                                   |Default |Description      |Required|
 |--------|-------------------------------------------------------|--------|-----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection |✔       |
-|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection |✔       |
-|context |[selection](https://www.weepower.com/script/#selection)|-       |Context selection|-       |
+|target  |[selection](/docs/v3/script?id=selection)              |-       |Target selection |✔       |
+|filter  |[selection](/docs/v3/script?id=selection)              |-       |Filter selection |✔       |
+|context |[selection](/docs/v3/script?id=selection)              |-       |Context selection|-       |
 
 ```html
 <div class="nav">
@@ -262,8 +262,8 @@ Determine if any matching parent selection contains descendant selection
 
 |Variable  |Type                                                   |Default |Description         |Required|
 |----------|-------------------------------------------------------|--------|--------------------|--------|
-|parent    |[selection](https://www.weepower.com/script/#selection)|-       |Parent selection    |✔       |
-|descendant|[selection](https://www.weepower.com/script/#selection)|-       |Descendant selection|✔       |
+|parent    |[selection](/docs/v3/script?id=selection)              |-       |Parent selection    |✔       |
+|descendant|[selection](/docs/v3/script?id=selection)              |-       |Descendant selection|✔       |
 
 ```js
 Wee.$contains('ref:element', '.descendant');
@@ -279,7 +279,7 @@ Get unique content of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|parent  |[selection](https://www.weepower.com/script/#selection)|-       |Parent selection|✔       |
+|parent  |[selection](/docs/v3/script?id=#selection)             |-       |Parent selection|✔       |
 
 ```js
 Wee.$contents('ref:element');
@@ -293,7 +293,7 @@ Get CSS value of first matching selection or set value of each matching selectio
 
 |Variable|Type                                                   |Default |Description                        |Required|
 |--------|-------------------------------------------------------|--------|-----------------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection                   |✔       |
+|target  |[selection](/docs/v3/script?id=/#selection)            |-       |Target selection                   |✔       |
 |a       |string, object                                         |-       |Property to get or set or an object|✔       |
 |b       |string                                                 |-       |Value to assign to property        |-       |
 
@@ -328,7 +328,7 @@ Get data of first matching selection or set data of each matching selection
 
 |Variable|Type                                                   |Default |Description                              |Required|
 |--------|-------------------------------------------------------|--------|-----------------------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection                         |✔       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection                         |✔       |
 |a       |string, object                                         |-       |Data attribute to get or set or an object|✔       |
 |b       |string                                                 |-       |Value to assign to data attribute        |-       |
 
@@ -384,7 +384,7 @@ Remove child nodes from each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔	    |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔	    |
 
 ```html
 <div data-ref="bio">
@@ -405,11 +405,11 @@ Wee.$empty('ref:bio');
 
 Get indexed node of matching selection
 
-|Variable|Type                                                   |Default |Description     |Required|
-|--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
-|index   |number                                                 |-       |Element index   |✔		|
-|context |[selection](https://www.weepower.com/script/#selection)|-|Context selection||
+|Variable|Type                                                   |Default |Description      |Required|
+|--------|-------------------------------------------------------|--------|-----------------|--------|
+|target  |[selection](/docs/v3/script?id=script/#selection)      |-       |Target selection |✔       |
+|index   |number                                                 |-       |Element index    |✔		 |
+|context |[selection](/docs/v3/script?id=script/#selection)      |-       |Context selection|-       |
 
 ```html
 <ul class="js-element">
@@ -443,9 +443,9 @@ Return a filtered subset of elements from a matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
-|filter  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|✔	|
-|options |object                                                 |-       |[Callback options](https://www.weepower.com/script/#functions)|-|
+|target  |[selection](/docs/v3/script?id=script/#selection)      |-       |Target selection|✔       |
+|filter  |[function](/docs/v3/script?id=script/#functions), [selection](/docs/v3/script?id=script/#selection)|-|Filter selection or callback|✔	|
+|options |object                                                 |-       |[Callback options](/docs/v3/script?id=script/#functions)|-|
 
 ### Selection
 
@@ -482,8 +482,8 @@ Get unique filtered descendants from each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|parent  |[selection](https://www.weepower.com/script/#selection)|-       |Parent selection|✔       |
-|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|✔       |
+|parent  |[selection](/docs/v3/script?id=script/#selection)      |-       |Parent selection|✔       |
+|filter  |[selection](/docs/v3/script?id=script/#selection)      |-       |Filter selection|✔       |
 
 ```js
 Wee.$find('table', 'tr');
@@ -495,10 +495,10 @@ Get the first element of a matching selection
 
 |Variable|Type                                                   |Default |Description      |Required|
 |--------|-------------------------------------------------------|--------|-----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection |✔       |
-|context |[selection](https://www.weepower.com/script/#selection)|-       |Selection context|-       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection |✔       |
+|context |[selection](/docs/v3/script?id=#selection)             |-       |Selection context|-       |
 
-Works the same as [Wee.$()](https://www.weepower.com/script/dom#core) but only returns the first result from the result set.
+Works the same as [Wee.$()](/docs/v3/script/dom?id=#core) but only returns the first result from the result set.
 
 ```js
 var $first = Wee.$first('ref:element');
@@ -508,10 +508,10 @@ var $first = Wee.$first('ref:element');
 
 Determine if the matching selection has a class
 
-|Variable |Type                                                   |Default |Description        |Required|
-|---------|-------------------------------------------------------|--------|-------------------|--------|
-|target   |[selection](https://www.weepower.com/script/#selection)|-       |Target selection   |✔       |
-|className|string                                                 |-       |Specific class name|✔       |
+|Variable |Type                                           |Default |Description        |Required|
+|---------|-----------------------------------------------|--------|-------------------|--------|
+|target   |[selection](/docs/v3/script?id=#selection)     |-       |Target selection   |✔       |
+|className|string                                         |-       |Specific class name|✔       |
 
 ### Single
 
@@ -532,10 +532,10 @@ truefalse
 
 Get or set the height of each matching selection
 
-|Variable|Type                                                                           |Default |Description     |Required|
-|--------|-------------------------------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)                        |-       |Target selection|✔       |
-|value   |[function](https://www.weepower.com/script/#functions), string, number, boolean|-       |Height to set, callback, or true to get outer height|✔|
+|Variable|Type                                                              |Default |Description     |Required|
+|--------|------------------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](/docs/v3/script?id=#selection)                        |-       |Target selection|✔       |
+|value   |[function](/docs/v3/script?id=#functions), string, number, boolean|-       |Height to set, callback, or true to get outer height|✔|
 
 ### Get
 
@@ -587,7 +587,7 @@ Hide each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔		|
 
 Hide works by adding the `js-hide` class which applies `display: none !important;`
 
@@ -601,8 +601,8 @@ Get inner HTML of first selection or set each matching selection's HTML
 
 |Variable|Type                                                          |Default |Description            |Required|
 |--------|--------------------------------------------------------------|--------|-----------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection       |✔       |
-|value   |[function](https://www.weepower.com/script/#functions), string|-       |HTML to set or callback|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)                    |-       |Target selection       |✔       |
+|value   |[function](/docs/v3/script?id=#functions), string             |-       |HTML to set or callback|✔       |
 
 ```html
 <div data-ref="element">
@@ -642,7 +642,7 @@ Get the zero-based index of a matching selection relative to it's siblings
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔		|
 
 ```html
 <ul>
@@ -666,8 +666,8 @@ Insert each matching source selection element after each matching target selecti
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|source  |[selection](https://www.weepower.com/script/#selection)|-       |Source selection|✔       |
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|source  |[selection](/docs/v3/script?id=#selection)             |-       |Source selection|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       |
 
 ```js
 Wee.$insertAfter('ref:element', '.js-element');
@@ -679,8 +679,8 @@ Insert each matching source selection element before each matching target select
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|source  |[selection](https://www.weepower.com/script/#selection)|-       |Source selection|✔       |
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|source  |[selection](/docs/v3/script?id=#selection)             |-       |Source selection|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       |
 
 ```js
 Wee.$insertBefore('ref:element', '.js-element');
@@ -692,9 +692,9 @@ Determine if at least one matching selection matches a specified criteria
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
-|filter  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|✔|
-|options |object                                                 |-       |[Callback options](https://www.weepower.com/script/#functions)|-|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       |
+|filter  |[function](/docs/v3/script?id=#functions), [selection](/docs/v3/script?id=#selection)|-|Filter selection or callback|✔|
+|options |object                                                 |-       |[Callback options](/docs/v3/script?id=#functions)|-|
 
 ### Selection
 
@@ -737,10 +737,10 @@ Get the last element of a matching selection
 
 |Variable|Type                                                   |Default |Description      |Required|
 |--------|-------------------------------------------------------|--------|-----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection |✔       |
-|context |[selection](https://www.weepower.com/script/#selection)|-       |Context selection|-       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection |✔       |
+|context |[selection](/docs/v3/script?id=#selection)             |-       |Context selection|-       |
 
-Works the same as [Wee.$()](https://www.weepower.com/script/dom#core) but only returns the last result from the result set.
+Works the same as [Wee.$()](/docs/v3/script/dom?id=#core) but only returns the last result from the result set.
 
 ```html
 <ul class="names">
@@ -765,9 +765,9 @@ Get the unique next sibling of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔|
-|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-|
-|options |object                                                 |-       |[Callback option](https://www.weepower.com/script/#functions)|-|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔|
+|filter  |[selection](/docs/v3/script?id=#selection)             |-       |Filter selection|-|
+|options |object                                                 |-       |[Callback option](/docs/v3/script?id=#functions)|-|
 
 ### Simple
 
@@ -800,9 +800,9 @@ Returns elements not matching the filtered selection
 
 |Variable|Type                                                   |Default  |Description     |Required|
 |--------|-------------------------------------------------------|---------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-        |Target selection|✔|
-|filter  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|✔|
-|options |object                                                 |-        |[Callback options](https://www.weepower.com/script/#functions)|-|
+|target  |[selection](/docs/v3/script?id=#selection)             |-        |Target selection|✔       |
+|filter  |[function](/docs/v3/script?id=#functions), [selection](/docs/v3/script?id=#selection)|-|Filter selection or callback|✔|
+|options |object                                                 |-        |[Callback options](/docs/v3/script?id=#functions)|-|
 
 ### Selection
 
@@ -839,7 +839,7 @@ Get the offset position of a matching selection relative to the document
 
 |Variable|Type                                                   |Default|Description     |Required|
 |--------|-------------------------------------------------------|-------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-      |Target selection|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-      |Target selection|✔       |
 |value   |object                                                 |-      |Offset values   |-       |
 
 ### Set
@@ -872,8 +872,8 @@ Get unique parent from each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|child   |[selection](https://www.weepower.com/script/#selection)|-       |Child selection |✔       |
-|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-       |
+|child   |[selection](/docs/v3/script?id=#selection)             |-       |Child selection |✔       |
+|filter  |[selection](/docs/v3/script?id=#selection)             |-       |Filter selection|-       |
 
 ### Selection Parent
 
@@ -895,8 +895,8 @@ Get unique ancestors of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|child   |[selection](https://www.weepower.com/script/#selection)|-       |Child selection |✔       |
-|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-       |
+|child   |[selection](/docs/v3/script?id=#selection)             |-       |Child selection |✔       |
+|filter  |[selection](/docs/v3/script?id=#selection)             |-       |Filter selection|-       |
 
 ```js
 Wee.$parents('ref:element');
@@ -908,7 +908,7 @@ Get the position of the first matching selection relative to its offset parent
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔		|
 
 ```js
 Wee.$position('ref:element');
@@ -929,9 +929,9 @@ Prepend selection or markup before each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
-|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|✔|
-|options |object                                                 |-       |[Callback options](https://www.weepower.com/script/#functions)|-|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       |
+|source  |[function](/docs/v3/script?id=#functions), [selection](/docs/v3/script?id=#selection), string|-|Source selection, callback, or HTML string|✔|
+|options |object                                                 |-       |[Callback options](/docs/v3/script?id=#functions)|-|
 
 ### Selection
 
@@ -967,9 +967,9 @@ Get the unique previous sibling of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
-|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-       |
-|options |object                                                 |-       |[Callback options](https://www.weepower.com/script/#functions)|-|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       |
+|filter  |[selection](/docs/v3/script?id=#selection)             |-       |Filter selection|-       |
+|options |object                                                 |-       |[Callback options](/docs/v3/script?id=#functions)|-|
 
 ### Simple
 
@@ -1002,9 +1002,9 @@ Get property of first matching selection or set property of each matching select
 
 |Variable|Type                                                          |Default |Description                        |Required|
 |--------|--------------------------------------------------------------|--------|-----------------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection                   |✔       |
+|target  |[selection](/docs/v3/script?id=#selection)                    |-       |Target selection                   |✔       |
 |a       |string, object                                                |-       |Property to get or set or an object|✔       |
-|b       |[function](https://www.weepower.com/script/#functions), string|-       |Value to assign to property        |-       |
+|b       |[function](/docs/v3/script?id=#functions), string             |-       |Value to assign to property        |-       |
 
 ### Get
 
@@ -1035,10 +1035,10 @@ Wee.$prop('ref:element', {
 
 Remove each matching selection from the document
 
-|Variable|Type                                                  |Default |Description      |Required|
-|--------|------------------------------------------------------|--------|-----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-      |Target selection |✔       |
-|context |[selection](https://www.weepower.com/script/#selection)|-      |Context selection|-       |
+|Variable|Type                                            |Default|Description      |Required|
+|--------|------------------------------------------------|-------|-----------------|--------|
+|target  |[selection](/docs/v3/script?id=#selection)      |-      |Target selection |✔       |
+|context |[selection](/docs/v3/script?id=#selection)      |-      |Context selection|-       |
 
 ```js
 Wee.$remove('ref:element');
@@ -1048,10 +1048,10 @@ Wee.$remove('ref:element');
 
 Remove specified attribute of each matching selection
 
-|Variable|Type                                                   |Default |Description     |Required|
-|--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
-|name    |string                                                 |-       |Attribute name  |✔		|
+|Variable|Type                                              |Default |Description     |Required |
+|--------|--------------------------------------------------|--------|----------------|---------|
+|target  |[selection](/docs/v3/script?id=#selection)        |-       |Target selection|✔		|
+|name    |string                                            |-       |Attribute name  |✔		|
 
 ```js
 Wee.$removeAttr('ref:element', 'title');
@@ -1061,10 +1061,10 @@ Wee.$removeAttr('ref:element', 'title');
 
 Remove classes from each matching selection
 
-|Variable|Type                                                           |Default |Description                        |Required|
-|--------|---------------------------------------------------------------|--------|-----------------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)        |-       |Target selection                   |✔       |
-|value   |[function](https://www.weepower.com/script/#functions), string |-       |Class name(s) to remove or callback|✔       |
+|Variable|Type                                               |Default |Description                        |Required|
+|--------|---------------------------------------------------|--------|-----------------------------------|--------|
+|target  |[selection](/docs/v3/script?id=#selection)         |-       |Target selection                   |✔       |
+|value   |[function](/docs/v3/script?id=#functions), string  |-       |Class name(s) to remove or callback|✔       |
 
 ### Single
 
@@ -1096,8 +1096,8 @@ Replace each matching selection with selection or markup
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
-|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|✔|
+|target  |[selection](h/docs/v3/script?id=#selection)            |-       |Target selection|✔       |
+|source  |[function](h/docs/v3/script?id=#functions), [selection](h/docs/v3/script?id=#selection), string|-|Source selection, callback, or HTML string|✔|
 
 ### Selection
 
@@ -1141,7 +1141,7 @@ Get or set the X scroll position of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|window  |Target Selection|-       |
+|target  |[selection](/docs/v3/script?id=#selection)             |window  |Target Selection|-       |
 |value   |integer                                                |-       |Left position   |-       |
 
 ### Get Value
@@ -1170,7 +1170,7 @@ Get or set the Y scroll position of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|window  |Target selection|-       |
+|target  |[selection](/docs/v3/script?id=#selection)             |window  |Target selection|-       |
 |value   |integer                                                |-       |Top position    |-       |
 
 ```js
@@ -1197,7 +1197,7 @@ Serialize input values from first matching form selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|select  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|select  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       |
 |json    |boolean                                                |false   |Convert to JSON |-       |
 
 ### Standard
@@ -1230,9 +1230,9 @@ Show each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       |
 
-Show works by removing the `js-hide` class either set manually or through [Wee.$hide()](https://www.weepower.com/script/dom#hide).
+Show works by removing the `js-hide` class either set manually or through [Wee.$hide()](/docs/v3/script/dom?id=#hide).
 
 ```js
 Wee.$show('ref:element');
@@ -1244,8 +1244,8 @@ Get unique siblings of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       | 
-|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       | 
+|filter  |[selection](/docs/v3/script?id=#selection)             |-       |Filter selection|✔       |
 
 ```html
 <p>Sibling paragraph</p>
@@ -1281,7 +1281,7 @@ Get subset of selection matches from specified range
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔       |
 |start   |integer                                                |-       |Starting index  |✔       |
 |end     |integer                                                |-       |Ending index    |✔       |
 
@@ -1295,8 +1295,8 @@ Get inner text of first selection or set each matching selection's text
 
 |Variable|Type                                                          |Default |Description            |Required|
 |--------|--------------------------------------------------------------|--------|-----------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection|      |✔       |
-|value   |[function](https://www.weepower.com/script/#functions), string|-       |Text to set or callback|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)                    |-       |Target selection|      |✔       |
+|value   |[function](/docs/v3/script?id=#functions), string             |-       |Text to set or callback|✔       |
 
 ```html
 <div class="js-element">Inner text</div>
@@ -1334,9 +1334,9 @@ Toggle the display of each matching selection
 
 |Variable|Type                                                   |Default |Description     |Required|
 |--------|-------------------------------------------------------|--------|----------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
+|target  |[selection](/docs/v3/script?id=#selection)             |-       |Target selection|✔		|
 
-Rotates calling the [hide](https://www.weepower.com/script/dom#hide) and [show](https://www.weepower.com/script/dom#show) methods.
+Rotates calling the [hide](/docs/v3/script/dom?id=#hide) and [show](/docs/v3/script/dom?id=#show) methods.
 
 ```js
 Wee.$toggle('ref:element');
@@ -1348,8 +1348,8 @@ Toggle adding and removing class(es) from the specified element
 
 |Variable |Type                                                           |Default |Description              |Required|
 |---------|---------------------------------------------------------------|--------|-------------------------|--------|
-|target   |[selection](https://www.weepower.com/script/#selection)        |-       |Target selection         |✔       |
-|className|[function](https://www.weepower.com/script/#functions),  string|-       |Class name(s) or callback|✔       |
+|target   |[selection](/docs/v3/script?id=#selection)                     |-       |Target selection         |✔       |
+|className|[function](/docs/v3/script?id=#functions),  string             |-       |Class name(s) or callback|✔       |
 |state    |boolean                                                        |-       |Force add or remove      |-       |
 
 ### Single
@@ -1382,8 +1382,8 @@ Get value of first matching selection or set values of each matching selection
 
 |Variable|Type                                                           |Default |Description                     |Required|
 |--------|---------------------------------------------------------------|--------|--------------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)        |-       |Target selection                |✔       |
-|value   |[function](https://www.weepower.com/script/#functions),  string|-       |Class name(s) to add or callback|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)                     |-       |Target selection                |✔       |
+|value   |[function](/docs/v3/script?id=#functions),  string             |-       |Class name(s) to add or callback|✔       |
 
 ### Get
 
@@ -1419,8 +1419,8 @@ Get or set the width of each matching selection
 
 |Variable|Type                                                          |Default |Description             |Required|
 |--------|--------------------------------------------------------------|--------|------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection        |✔       |
-|value   |[function](https://www.weepower.com/script/#functions), string|-       |Width to set or callback|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)                    |-       |Target selection        |✔       |
+|value   |[function](/docs/v3/script?id=#functions), string             |-       |Width to set or callback|✔       |
 
 ### Get
 
@@ -1462,8 +1462,8 @@ Wrap markup around each matching selection
 
 |Variable|Type                                                          |Default |Description             |Required|
 |--------|--------------------------------------------------------------|--------|------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection        |✔       |
-|html    |[function](https://www.weepower.com/script/#functions), string|-       |Wrapper HTML or callback|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)                    |-       |Target selection        |✔       |
+|html    |[function](/docs/v3/script?id=#functions), string             |-       |Wrapper HTML or callback|✔       |
 
 ### Markup
 
@@ -1521,8 +1521,8 @@ Wrap markup around the content of each matching selection
 
 |Variable|Type                                                          |Default |Description             |Required|
 |--------|--------------------------------------------------------------|--------|------------------------|--------|
-|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection        |✔       |
-|html    |[function](https://www.weepower.com/script/#functions), string|-       |Wrapper HTML or callback|✔       |
+|target  |[selection](/docs/v3/script?id=#selection)                    |-       |Target selection        |✔       |
+|html    |[function](/docs/v3/script?id=#functions), string             |-       |Wrapper HTML or callback|✔       |
 
 ### Markup
 
