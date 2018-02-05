@@ -735,126 +735,129 @@ true
 
 Get the last element of a matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|context|[selection](https://www.weepower.com/script/#selection)|-|Context selection||
+|Variable|Type                                                   |Default |Description      |Required|
+|--------|-------------------------------------------------------|--------|-----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection |✔       |
+|context |[selection](https://www.weepower.com/script/#selection)|-       |Context selection|-       |
 
 Works the same as [Wee.$()](https://www.weepower.com/script/dom#core) but only returns the last result from the result set.
 
-```
-<ulclass="names"><li>John Doe</li><li>John Smith</li><li>Jane Doe</li><li>Jane Smith</li></ul>
+```html
+<ul class="names">
+    <li>John Doe</li>
+    <li>John Smith</li>
+    <li>Jane Doe</li>
+    <li>Jane Smith</li>
+</ul>
 ```
 
-```
+```js
 Wee.$last('.names li');
 ```
 
-```
+```html
 <li>Jane Smith</li>
 ```
 
-## $next ## (#next .doc__title)
+## $next
 
 Get the unique next sibling of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|filter|[selection](https://www.weepower.com/script/#selection)|-|Filter selection||
-|options|object|-|[Callback options](https://www.weepower.com/script/#functions)||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔|
+|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-|
+|options |object                                                 |-       |[Callback option](https://www.weepower.com/script/#functions)|-|
 
-### 
-Simple
- ### (.doc__label .doc__code__label)
+### Simple
 
-```
+```js
 Wee.$next();
 ```
 
-### 
-Filtered
- ### (.doc__label .doc__code__label)
+### Filtered
 
-```
-<ul><li>John Doe</li><li>John Smith</li><lidata-ref="name">Jane Doe</li><li>Jane Smith</li></ul>
+```html
+<ul>
+    <li>John Doe</li>
+    <li>John Smith</li>
+    <li data-ref="name">Jane Doe</li>
+    <li>Jane Smith</li>
+</ul>
 ```
 
-```
+```js
 Wee.$next('ref:name');
 ```
 
-```
+```html
 <li>Jane Smith</li>
 ```
 
-## $not ## (#not .doc__title)
+## $not
 
 Returns elements not matching the filtered selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|filter|[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|													✔											|
-|options|object|-|[Callback options](https://www.weepower.com/script/#functions)||
+|Variable|Type                                                   |Default  |Description     |Required|
+|--------|-------------------------------------------------------|---------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-        |Target selection|✔|
+|filter  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection)|-|Filter selection or callback|✔|
+|options |object                                                 |-        |[Callback options](https://www.weepower.com/script/#functions)|-|
 
-### 
-Selection
- ### (.doc__label .doc__code__label)
+### Selection
 
-```
+```js
 Wee.$not('ref:element', 'div');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and element are injected into the callback. The scope of `this` is the element.
 
-```
-<ulclass="names"><li>John Doe</li><lidata-hidden="true">Jane Doe</li><li>John Smith</li><li>Jane Smith</li></ul>
+```html
+<ul class="names">
+    <li>John Doe</li>
+    <li data-hidden="true">Jane Doe</li>
+    <li>John Smith</li>
+    <li>Jane Smith</li>
+</ul>
 ```
 
-```
+```js
 Wee.$not('.names li', function(i, el) {
     // Check if data-hidden is set to truereturn Wee.$data(el, 'hidden') === true;
 });
 ```
 
-```
+```js
 [<li>John Doe</li>, <li>John Smith</li>, <li>Jane Smith</li>]
 ```
 
-## $offset ## (#offset .doc__title)
+## $offset
 
 Get the offset position of a matching selection relative to the document
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|value|object|-|Offset values||
+|Variable|Type                                                   |Default|Description     |Required|
+|--------|-------------------------------------------------------|-------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-      |Target selection|✔       |
+|value   |object                                                 |-      |Offset values   |-       |
 
-### 
-Set
- ### (.doc__label .doc__code__label)
+### Set
 
-```
+```js
 Wee.$offset('ref:element', {
     top: 100,
     left: 20
 });
 ```
 
-### 
-Get
- ### (.doc__label .doc__code__label)
+### Get
 
-```
+```js
 Wee.$offset('ref:element');
 ```
 
-```
+```js
 {
     top: 520,
     left: 30
@@ -863,59 +866,55 @@ Wee.$offset('ref:element');
 
 The object values are returned as unitless pixel values.
 
-## $parent ## (#parent .doc__title)
+## $parent
 
 Get unique parent from each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|child|[selection](https://www.weepower.com/script/#selection)|-|Child selection|													✔											|
-|filter|[selection](https://www.weepower.com/script/#selection)|-|Filter selection||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|child   |[selection](https://www.weepower.com/script/#selection)|-       |Child selection |✔       |
+|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-       |
 
-### 
-Selection Parent
- ### (.doc__label .doc__code__label)
+### Selection Parent
 
-```
+```js
 Wee.$parent('ref:element');
 ```
 
-### 
-Filtered
- ### (.doc__label .doc__code__label)
+### Filtered
 
 Return selection parent only if it matches the filter.
 
-```
+```js
 Wee.$parent('ref:element', 'main');
 ```
 
-## $parents ## (#parents .doc__title)
+## $parents
 
 Get unique ancestors of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|child|[selection](https://www.weepower.com/script/#selection)|-|Child selection|													✔											|
-|filter|[selection](https://www.weepower.com/script/#selection)|-|Filter selection||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|child   |[selection](https://www.weepower.com/script/#selection)|-       |Child selection |✔       |
+|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-       |
 
-```
+```js
 Wee.$parents('ref:element');
 ```
 
-## $position ## (#position .doc__title)
+## $position
 
 Get the position of the first matching selection relative to its offset parent
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
 
-```
+```js
 Wee.$position('ref:element');
 ```
 
-```
+```js
 {
     top: 250,
     left: 30
@@ -924,7 +923,7 @@ Wee.$position('ref:element');
 
 The object values are returned as unitless pixel values.
 
-## $prepend ## (#prepend .doc__title)
+## $prepend
 
 Prepend selection or markup before each matching selection
 
