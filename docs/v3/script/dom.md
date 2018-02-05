@@ -927,523 +927,483 @@ The object values are returned as unitless pixel values.
 
 Prepend selection or markup before each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|source|[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|													✔											|
-|options|object|-|[Callback options](https://www.weepower.com/script/#functions)||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|✔|
+|options |object                                                 |-       |[Callback options](https://www.weepower.com/script/#functions)|-|
 
-### 
-Selection
- ### (.doc__label .doc__code__label)
+### Selection
 
-```
+```js
 Wee.$prepend('ref:element', Wee.$('.js-element'));
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and HTML are injected into the callback. The scope of `this` is the element.
 
-```
-<h1data-ref="listHeading">Names</h1><uldata-ref="list"><li>John Doe</li><li>Jane Doe</li></ul>
+```html
+<h1 data-ref="listHeading">Names</h1>
+<ul data-ref="list">
+    <li>John Doe</li>
+    <li>Jane Doe</li>
+</ul>
 ```
 
-```
+```js
 Wee.$prepend('ref:listHeading', function() {
     return Wee.$children('ref:list').length + ' ';
 });
 ```
 
-```
-(<h1data-ref="listHeading">2 Names</h1><uldata-ref="list"><li>John Doe</li><li>Jane Doe</li></ul>)
+```js
+(<h1 data-ref="listHeading">2 Names</h1><ul data-ref="list"><li>John Doe</li><li>Jane Doe</li></ul>)
 ```
 
-## $prev ## (#prev .doc__title)
+## $prev
 
 Get the unique previous sibling of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|filter|[selection](https://www.weepower.com/script/#selection)|-|Filter selection||
-|options|object|-|[Callback options](https://www.weepower.com/script/#functions)||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|-       |
+|options |object                                                 |-       |[Callback options](https://www.weepower.com/script/#functions)|-|
 
-### 
-Simple
- ### (.doc__label .doc__code__label)
+### Simple
 
-```
+```js
 Wee.$prev();
 ```
 
-### 
-Filtered
- ### (.doc__label .doc__code__label)
+### Filtered
 
-```
-<ul><li>John Doe</li><li>John Smith</li><lidata-ref="name">Jane Doe</li><li>Jane Smith</li></ul>
+```html
+<ul>
+    <li>John Doe</li>
+    <li>John Smith</li>
+    <li data-ref="name">Jane Doe</li>
+    <li>Jane Smith</li>
+</ul>
 ```
 
-```
+```js
 Wee.$prev('ref:name');
 ```
 
-```
+```html
 <li>John Smith</li>
 ```
 
-## $prop ## (#prop .doc__title)
+## $prop
 
 Get property of first matching selection or set property of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|a|string, object|-|Property to get or set or an object|													✔											|
-|b|[function](https://www.weepower.com/script/#functions), string|-|Value to assign to property||
+|Variable|Type                                                          |Default |Description                        |Required|
+|--------|--------------------------------------------------------------|--------|-----------------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection                   |✔       |
+|a       |string, object                                                |-       |Property to get or set or an object|✔       |
+|b       |[function](https://www.weepower.com/script/#functions), string|-       |Value to assign to property        |-       |
 
-### 
-Get
- ### (.doc__label .doc__code__label)
+### Get
 
-```
+```js
 Wee.$prop('ref:element', 'checked');
 ```
 
-```
+```js
 true
 ```
 
-### 
-Single
- ### (.doc__label .doc__code__label)
+### Single
 
-```
+```js
 Wee.$prop('ref:element', 'checked', true);
 ```
 
-### 
-Multiple
- ### (.doc__label .doc__code__label)
+### Multiple
 
-```
+```js
 Wee.$prop('ref:element', {
     checked: true,
     required: false
 });
 ```
 
-## $remove ## (#remove .doc__title)
+## $remove
 
 Remove each matching selection from the document
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|context|[selection](https://www.weepower.com/script/#selection)|-|Context selection||
+|Variable|Type                                                  |Default |Description      |Required|
+|--------|------------------------------------------------------|--------|-----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-      |Target selection |✔       |
+|context |[selection](https://www.weepower.com/script/#selection)|-      |Context selection|-       |
 
-```
+```js
 Wee.$remove('ref:element');
 ```
 
-## $removeAttr ## (#removeattr .doc__title)
+## $removeAttr
 
 Remove specified attribute of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|name|string|-|Attribute name|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
+|name    |string                                                 |-       |Attribute name  |✔		|
 
-```
+```js
 Wee.$removeAttr('ref:element', 'title');
 ```
 
-## $removeClass ## (#removeclass .doc__title)
+## $removeClass
 
 Remove classes from each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|value|[function](https://www.weepower.com/script/#functions), string|-|Class name(s) to remove or callback|													✔											|
+|Variable|Type                                                           |Default |Description                        |Required|
+|--------|---------------------------------------------------------------|--------|-----------------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)        |-       |Target selection                   |✔       |
+|value   |[function](https://www.weepower.com/script/#functions), string |-       |Class name(s) to remove or callback|✔       |
 
-### 
-Single
- ### (.doc__label .doc__code__label)
+### Single
 
-```
+```js
 Wee.$removeClass('ref:element', 'modifier');
 ```
 
-### 
-Multiple
- ### (.doc__label .doc__code__label)
+### Multiple
 
 Separate multiple class names with spaces.
 
-```
+```js
 Wee.$removeClass('ref:element', 'modifier modifier2');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and class value are injected into the callback. The scope of `this` is the element.
 
-```
+```js
 Wee.$removeClass('ref:element', function(i, className) {
     // Remove an indexed classreturn className + i;
 });
 ```
 
-## $replaceWith ## (#replacewith .doc__title)
+## $replaceWith
 
 Replace each matching selection with selection or markup
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|source|[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string||Source selection, callback, or HTML string|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|source  |[function](https://www.weepower.com/script/#functions), [selection](https://www.weepower.com/script/#selection), string|-|Source selection, callback, or HTML string|✔|
 
-### 
-Selection
- ### (.doc__label .doc__code__label)
+### Selection
 
-```
+```js
 Wee.$replaceWith('ref:element', Wee.$('.js-element'));
 ```
 
-### 
-Markup
- ### (.doc__label .doc__code__label)
+### Markup
 
-```
+```js
 Wee.$replaceWith('ref:element', '<span>Replacement element</span>');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and HTML are injected into the callback. The scope of `this` is the element.
 
-```
-<ulclass="names"><li>John Doe</li><li>Jane Doe</li></ul>
+```html
+<ul class="names">
+    <li>John Doe</li>
+    <li>Jane Doe</li>
+</ul>
 ```
 
-```
+```js
 Wee.$replaceWith('.names li', function(i, html) {
     return"<li>The " + html + "</li>";
 });
 ```
 
-```
-<ulclass="names"><li>The Jane Doe</li><li>The John Doe</li></ul>
+```html
+<ul class="names">
+    <li>The Jane Doe</li>
+    <li>The John Doe</li>
+</ul>
 ```
 
-## $scrollLeft ## (#scrollleft .doc__title)
+## $scrollLeft
 
 Get or set the X scroll position of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|window|Target Selection||
-|value|integer|-|Left position||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|window  |Target Selection|-       |
+|value   |integer                                                |-       |Left position   |-       |
 
-### 
-Get Value
- ### (.doc__label .doc__code__label)
+### Get Value
 
-```
+```js
 Wee.$scrollLeft();
 ```
 
-```
+```js
 0
 ```
 
 The value returned is a unitless pixel value.
 
-### 
-Set Value
- ### (.doc__label .doc__code__label)
+### Set Value
 
-```
+```js
 Wee.$scrollLeft(15);
 ```
 
 Scroll position should be provided as unitless pixel value.
 
-## $scrollTop ## (#scrolltop .doc__title)
+## $scrollTop
 
 Get or set the Y scroll position of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|window|Target selection||
-|value|integer|-|Top position||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|window  |Target selection|-       |
+|value   |integer                                                |-       |Top position    |-       |
 
-```
+```js
 Wee.$scrollTop();
 ```
 
-```
+```js
 1560
 ```
 
 The value returned is a unitless pixel value.
 
-### 
-Set Value
- ### (.doc__label .doc__code__label)
+### Set Value
 
-```
+```js
 Wee.$scrollTop('body', 15);
 ```
 
 Scroll position should be provided as unitless pixel value.
 
-## $serializeForm ## (#serializeform .doc__title)
+## $serializeForm
 
 Serialize input values from first matching form selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|select|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|json|boolean|false|Convert to JSON||
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|select  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|json    |boolean                                                |false   |Convert to JSON |-       |
 
-### 
-Standard
- ### (.doc__label .doc__code__label)
+### Standard
 
-```
+```js
 Wee.$serializeForm('ref:element');
 ```
 
-```
+```js
 "inputName=value&inputName2=value2"
 ```
 
-### 
-JSON
- ### (.doc__label .doc__code__label)
+### JSON
 
-```
+
+```js
 Wee.$serializeForm('ref:element', true);
 ```
 
-```
+```js
 {
     "inputName": "value",
     "inputName2": "value2"
 }
 ```
 
-## $show ## (#show .doc__title)
+## $show
 
 Show each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
 
 Show works by removing the `js-hide` class either set manually or through [Wee.$hide()](https://www.weepower.com/script/dom#hide).
 
-```
+```js
 Wee.$show('ref:element');
 ```
 
-## $siblings ## (#siblings .doc__title)
+## $siblings
 
 Get unique siblings of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|filter|[selection](https://www.weepower.com/script/#selection)|-|Filter selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       | 
+|filter  |[selection](https://www.weepower.com/script/#selection)|-       |Filter selection|✔       |
 
-```
-<p>Sibling paragraph</p><span>Sibling span</span><divdata-ref="sibling">Target div.</div>
+```html
+<p>Sibling paragraph</p>
+<span>Sibling span</span>
+<div data-ref="sibling">Target div.</div>
 ```
 
-### 
-All Siblings
- ### (.doc__label .doc__code__label)
+### All Siblings
 
 Without a filter all siblings will be returned.
 
-```
+```js
 Wee.$siblings('ref:sibling');
 ```
 
-```
+```js
 [<p>Sibling paragraph</p>, <span>Sibling span</span>]
 ```
 
-### 
-Filtered
- ### (.doc__label .doc__code__label)
+### Filtered
 
-```
+```js
 Wee.$siblings('ref:sibling', 'p');
 ```
 
-```
+```js
 [<p>Sibling paragraph</p>]
 ```
 
-## $slice ## (#slice .doc__title)
+## $slice
 
 Get subset of selection matches from specified range
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|start|integer|-|Starting index|													✔											|
-|end|integer|-|Ending index|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔       |
+|start   |integer                                                |-       |Starting index  |✔       |
+|end     |integer                                                |-       |Ending index    |✔       |
 
-```
+```js
 Wee.$slice('li', 0, 3);
 ```
 
-## $text ## (#text .doc__title)
+## $text
 
 Get inner text of first selection or set each matching selection's text
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|value|[function](https://www.weepower.com/script/#functions), string|-|Text to set or callback|													✔											|
+|Variable|Type                                                          |Default |Description            |Required|
+|--------|--------------------------------------------------------------|--------|-----------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection|      |✔       |
+|value   |[function](https://www.weepower.com/script/#functions), string|-       |Text to set or callback|✔       |
 
-```
-<divclass="js-element">Inner text</div>
+```html
+<div class="js-element">Inner text</div>
 ```
 
-### 
-Get
- ### (.doc__label .doc__code__label)
+### Get
 
-```
+```js
 Wee.$text('.js-element');
 ```
 
-```
+```js
 "Inner text"
 ```
 
-### 
-Set
- ### (.doc__label .doc__code__label)
+### Set
 
-```
+```js
 Wee.$text('.js-element', 'New text');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and text are injected into the callback. The scope of `this` is the element.
 
-```
+```js
 Wee.$text('.js-element', function(el, i, text) {
     // Return uppercase textreturn text.toUpperCase();
 });
 ```
 
-## $toggle ## (#toggle .doc__title)
+## $toggle
 
 Toggle the display of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
+|Variable|Type                                                   |Default |Description     |Required|
+|--------|-------------------------------------------------------|--------|----------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)|-       |Target selection|✔		|
 
 Rotates calling the [hide](https://www.weepower.com/script/dom#hide) and [show](https://www.weepower.com/script/dom#show) methods.
 
-```
+```js
 Wee.$toggle('ref:element');
 ```
 
-## $toggleClass ## (#toggleclass .doc__title)
+## $toggleClass ##
 
 Toggle adding and removing class(es) from the specified element
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|className|[function](https://www.weepower.com/script/#functions),  string|-|Class name(s) or callback|													✔											|
-|state|boolean|-|Force add or remove||
+|Variable |Type                                                           |Default |Description              |Required|
+|---------|---------------------------------------------------------------|--------|-------------------------|--------|
+|target   |[selection](https://www.weepower.com/script/#selection)        |-       |Target selection         |✔       |
+|className|[function](https://www.weepower.com/script/#functions),  string|-       |Class name(s) or callback|✔       |
+|state    |boolean                                                        |-       |Force add or remove      |-       |
 
-### 
-Single
- ### (.doc__label .doc__code__label)
+### Single
 
-```
+```js
 Wee.$toggleClass('ref:element', 'modifier');
 ```
 
-### 
-Multiple
- ### (.doc__label .doc__code__label)
+### Multiple
 
 Separate multiple class names with spaces.
 
-```
+```js
 Wee.$toggleClass('ref:element', 'modifier modifier2');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index, class value and state are injected into the callback. The scope of `this` is the element.
 
-```
+```js
 Wee.$toggleClass('.element', function(i, className, state) {
     // Return the class intended for togglereturn className + (state === true ? '-on' : '-off');
 });
 ```
 
-## $val ## (#val .doc__title)
+## $val
 
 Get value of first matching selection or set values of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|value|[function](https://www.weepower.com/script/#functions),  string|-|Class name(s) to add or callback|													✔											|
+|Variable|Type                                                           |Default |Description                     |Required|
+|--------|---------------------------------------------------------------|--------|--------------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)        |-       |Target selection                |✔       |
+|value   |[function](https://www.weepower.com/script/#functions),  string|-       |Class name(s) to add or callback|✔       |
 
-### 
-Get
- ### (.doc__label .doc__code__label)
+### Get
 
-```
+```js
 Wee.$val('ref:element');
 ```
 
-### 
-Set
- ### (.doc__label .doc__code__label)
+### Set
 
-```
+```js
 Wee.$val('ref:element', '123');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
-```
-<inputtype="text"value="This is an ordinary sentence in an input field."data-ref="input">
+```html
+<input type="text" value="This is an ordinary sentence in an input field." data-ref="input">
 ```
 
-```
+```js
 Wee.$val('ref:input', function(i, value) {
     // Check the length of the current value but don't change the valueif (value.length > 20) {
         alert('Getting long winded, aren\'t we?');
@@ -1453,48 +1413,42 @@ Wee.$val('ref:input', function(i, value) {
 });
 ```
 
-## $width ## (#width .doc__title)
+## $width
 
 Get or set the width of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|value|[function](https://www.weepower.com/script/#functions), string||Width to set or callback|													✔											|
+|Variable|Type                                                          |Default |Description             |Required|
+|--------|--------------------------------------------------------------|--------|------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection        |✔       |
+|value   |[function](https://www.weepower.com/script/#functions), string|-       |Width to set or callback|✔       |
 
-### 
-Get
- ### (.doc__label .doc__code__label)
+### Get
 
-```
+```js
 Wee.$width('ref:element');
 ```
 
-```
+```js
 100
 ```
 
 The value returned is a unitless pixel value.
 
-### 
-Set
- ### (.doc__label .doc__code__label)
+### Set
 
-```
+```js
 Wee.$width('ref:element', '10rem');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index and width are injected into the callback. The scope of `this` is the element.
 
-```
-<divdata-ref="example"style="width: 100px;"></div>
+```html
+<div data-ref="example"style="width: 100px;"></div>
 ```
 
-```
+```js
 Wee.$width('ref:example', function(i, width) {
     // Increase the width of the element by 50pxreturn (width += 50) + 'px';
 });
@@ -1502,34 +1456,39 @@ Wee.$width('ref:example', function(i, width) {
 
 If no unit is provided pixels will be set.
 
-## $wrap ## (#wrap .doc__title)
+## $wrap
 
 Wrap markup around each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|html|[function](https://www.weepower.com/script/#functions), string|-|Wrapper HTML or callback|													✔											|
+|Variable|Type                                                          |Default |Description             |Required|
+|--------|--------------------------------------------------------------|--------|------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection        |✔       |
+|html    |[function](https://www.weepower.com/script/#functions), string|-       |Wrapper HTML or callback|✔       |
 
-### 
-Markup
- ### (.doc__label .doc__code__label)
+### Markup
 
-```
+```js
 Wee.$wrap('ref:element', '<div class="wrapper"></div>');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index is injected into the callback. The scope of `this` is the element.
 
-```
-<divclass="library"><ulclass="books programming"><li>JavaScript: The Definitive Guide</li><li>Mastering Regular Expressions</li></ul><ulclass="books technique"><li>Code Complete</li><li>The Pragmatic Programmer</li></ul></div>
+```html
+<div class="library">
+    <ul class="books programming">
+        <li>JavaScript: The Definitive Guide</li>
+        <li>Mastering Regular Expressions</li>
+    </ul>
+    <ul class="books technique">
+        <li>Code Complete</li>
+        <li>The Pragmatic Programmer</li>
+    </ul>
+</div>
 ```
 
-```
+```js
 Wee.$wrap('.books', function(i) {
     if (Wee.$hasClass($(this), 'programming')) {
         return'<div class="reference"></div>'
@@ -1539,38 +1498,50 @@ Wee.$wrap('.books', function(i) {
 });
 ```
 
-```
-<divclass="library"><divclass="reference"><ulclass="books programming"><li>JavaScript: The Definitive Guide</li><li>Mastering Regular Expressions</li></ul></div><divclass="readers"><ulclass="books technique"><li>Code Complete</li><li>The Pragmatic Programmer</li></ul></div></div>
+```html
+<div class="library">
+    <div class="reference">
+        <ul class="books programming">
+            <li>JavaScript: The Definitive Guide</li>
+            <li>Mastering Regular Expressions</li>
+        </ul>
+    </div>
+    <div class="readers">
+        <ul class="books technique">
+            <li>Code Complete</li>
+            <li>The Pragmatic Programmer</li>
+        </ul>
+    </div>
+</div>
 ```
 
-## $wrapInner ## (#wrapinner .doc__title)
+## $wrapInner
 
 Wrap markup around the content of each matching selection
 
-|Variable|Type|Default|Description|Required|
-|--------|--------|--------|--------|--------|
-|target|[selection](https://www.weepower.com/script/#selection)|-|Target selection|													✔											|
-|html|[function](https://www.weepower.com/script/#functions), string|-|Wrapper HTML or callback|													✔											|
+|Variable|Type                                                          |Default |Description             |Required|
+|--------|--------------------------------------------------------------|--------|------------------------|--------|
+|target  |[selection](https://www.weepower.com/script/#selection)       |-       |Target selection        |✔       |
+|html    |[function](https://www.weepower.com/script/#functions), string|-       |Wrapper HTML or callback|✔       |
 
-### 
-Markup
- ### (.doc__label .doc__code__label)
+### Markup
 
-```
+```js
 Wee.$wrapInner('ref:element', '<div class="wrapper"></div>');
 ```
 
-### 
-Function
- ### (.doc__label .doc__code__label)
+### Function
 
 The current index is injected into the callback. The scope of `this` is the element.
 
-```
-<ulclass="names"><liclass="boss">Jane Doe</li><li>John Doe</li></ul>
+```html
+<ul class="names">
+    <li class="boss">Jane Doe</li>
+    <li>John Doe</li><
+/ul>
 ```
 
-```
+```js
 Wee.$wrapInner('.names li', function(i) {
     // Wrap bosses in bold tagif (Wee.$hasClass($(this), 'boss')) {
         return'<b></b>';
@@ -1578,6 +1549,9 @@ Wee.$wrapInner('.names li', function(i) {
 });
 ```
 
-```
-<ulclass="names"><liclass="boss"><b>Jane Doe</b></li><li>John Doe</li></ul>
+```html
+<ul class="names">
+    <li class="boss"><b>Jane Doe</b></li>
+    <li>John Doe</li>
+</ul>
 ```
